@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425.2 283.46">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Montserrat-Light, Montserrat;
+        font-weight: 300;
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-size: 30.68px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        font-family: Montserrat-Bold, Montserrat;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(52.72 202.52)"><tspan class="cls-7" x="0" y="0">B</tspan><tspan class="cls-8" x="21.97" y="0">L</tspan><tspan class="cls-5" x="39.34" y="0">A</tspan><tspan class="cls-6" x="62.47" y="0">CKB</tspan><tspan class="cls-4" x="128.66" y="0">O</tspan><tspan class="cls-7" x="152.96" y="0">OK </tspan><tspan class="cls-1" x="209.82" y="0">CIRCLE</tspan></text>
+  <path class="cls-3" d="M208.59,156.84c-13.91,0-26.36-6.31-34.17-17.32-10.8-15.23-9.76-36.09,2.59-51.9,8.15-10.43,19.36-16.18,31.57-16.18h1.76v35.74l-6.82,6.88,6.82,7.06v35.72h-1.76ZM177,118.83c-.79.62-.67,1.66-.48,2.67l.05.26c1.91,11.62,11.73,22.06,23.34,24.83l1.24.3v-28.27h-23.88l-.27.21ZM201.16,109.67v-28.13l-1.31.41c-10.97,3.41-19.94,13.81-22.85,26.48l-.28,1.24h24.45Z"/>
+  <path class="cls-3" d="M246.31,129.63c-3.7,7.75-10.56,13.82-19.16,16.59l-.4.13-1.39-.73v-63.61s1.31.41,1.31.41c8.38,2.64,14.5,9.46,18.15,16.2h10.09c-2.45-5.92-6.15-11.39-10.79-15.85-7.48-7.19-16.81-11.2-26.27-11.31l-1.43-.02v85.35l1.44-.02c12.74-.17,24.84-6.19,32.36-16.11,2.56-3.37,4.59-7.15,5.97-11.05h-9.86Z"/>
+</svg>
