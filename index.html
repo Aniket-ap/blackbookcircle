@@ -83,6 +83,15 @@
             scroll-behavior: smooth;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Enhanced smooth scrolling for all elements */
+        * {
+            scroll-behavior: smooth;
+        }
+        
         /* Smooth scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -126,6 +135,7 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 10px 0;
         }
         
         .logo {
@@ -141,15 +151,10 @@
         }
         
         .logo img {
-            height: 100px;
+            height: 70px;
             width: auto;
-            filter: brightness(0) invert(1) drop-shadow(0 2px 10px rgba(255,255,255,0.3));
-            transition: var(--transition);
-        }
-        
-        .nav-container.scrolled .logo img {
-            filter: brightness(0) invert(0) drop-shadow(0 2px 10px rgba(0,0,0,0.1));
-            height: 100px;
+            transition: all 0.6s ease-in-out;
+            opacity: 1;
         }
         
         .nav-links {
@@ -228,13 +233,15 @@
         }
         
         .hero-title {
-            font-weight: 700;
-            font-size: 4.5rem;
-            line-height: 1.1;
+            font-weight: 300;
+            font-size: 38px;
+            line-height: 1.2;
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 1.2s ease forwards 0.5s;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            word-wrap: break-word;
+            hyphens: none;
         }
         
         .hero-title .letter {
@@ -266,13 +273,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1.2rem 2.5rem;
+            padding: 10px 20px;
             background: rgba(255, 255, 255, 0.1);
             color: var(--secondary-white);
             text-decoration: none;
             border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 400;
             font-size: 1.1rem;
             transition: var(--transition);
             min-width: 200px;
@@ -300,7 +307,7 @@
             background: var(--secondary-white);
             color: var(--primary-black);
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
             border-color: var(--secondary-white);
         }
         
@@ -432,7 +439,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 4rem;
             margin-bottom: 3rem;
         }
@@ -523,11 +530,19 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 26px;
+                line-height: 1.15;
             }
             
             .about-text h2 {
                 font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .hero-title {
+                font-size: 24px;
+                line-height: 1.2;
             }
         }
         
@@ -553,8 +568,9 @@
             }
             
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 22px;
                 margin-bottom: 1.5rem;
+                line-height: 1.25;
             }
             
             .hero-subtitle {
@@ -616,7 +632,7 @@
     <nav class="nav-container" id="navbar">
         <div class="nav-content">
             <a href="#" class="logo">
-                <img src="Blackbook Circle approved_logo -White.svg" alt="BlackBook Circle" id="logoImg">
+                <img src="Blackbook-white-image.png" alt="BlackBook Circle" id="logoImg">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -649,7 +665,7 @@
                 </div>
                 <div class="about-text">
                     <h3 class="text-sm font-light mb-2">Who We Are</h3>
-                    <h2 class="font-bold mb-6">A Trusted Circle for C-Suite Executives</h2>
+                    <h2 class="font-light mb-6">A Trusted Circle for C-Suite Executives</h2>
                     <p class="font-light mb-4">
                         A confidential and private peer to peer network for the C-Suite executives, across APAC. We curate discreet, peer led forums where leaders gain clarity, build trusted relationships and uncover opportunities that drive enterprise transformation
                     </p>
@@ -664,24 +680,18 @@
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <img src="Blackbook Circle approved_logo -White.svg" alt="BlackBook Circle">
+                    <img src="Blackbook-white-image.png" alt="BlackBook Circle">
                 </div>
                 <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with exceptional opportunities across the APAC region.</p>
             </div>
             <div class="footer-section">
                 <h3 class="font-bold">Quick Links</h3>
                 <a href="about.html" class="font-light">About</a>
-                <a href="consultancy.html" class="font-light">Consultancy</a>
                 <a href="executives.html" class="font-light">Executives</a>
                 <a href="vendors.html" class="font-light">Vendors</a>
+                <a href="consultancy.html" class="font-light">Consultancy</a>
             </div>
-            <div class="footer-section">
-                <h3 class="font-bold">Services</h3>
-                <a href="#" class="font-light">Executive Forums</a>
-                <a href="#" class="font-light">Strategic Partnerships</a>
-                <a href="#" class="font-light">Leadership Development</a>
-                <a href="#" class="font-light">Network Events</a>
-            </div>
+
             <div class="footer-section">
                 <h3 class="font-bold">Contact</h3>
                 <p class="font-light">info@blackbookcircle.com</p>
@@ -690,7 +700,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2024 BlackBook Circle. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
     </footer>
 
@@ -713,16 +723,27 @@
         // Enhanced navbar scroll effect
         function handleNavbarScroll() {
             const navbar = document.getElementById('navbar');
+            const logoImg = document.getElementById('logoImg');
             const scrolled = window.scrollY > 100;
             
             if (scrolled) {
                 navbar.classList.add('scrolled');
+                logoImg.style.opacity = '0';
+                setTimeout(() => {
+                    logoImg.src = 'Blackbook-dark-image.png';
+                    logoImg.style.opacity = '1';
+                }, 200);
             } else {
                 navbar.classList.remove('scrolled');
+                logoImg.style.opacity = '0';
+                setTimeout(() => {
+                    logoImg.src = 'Blackbook-white-image.png';
+                    logoImg.style.opacity = '1';
+                }, 200);
             }
         }
         
-        // Smooth scrolling for anchor links
+        // Enhanced smooth scrolling for anchor links
         function initSmoothScrolling() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -735,6 +756,18 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+            
+            // Add smooth scrolling to all internal links
+            document.querySelectorAll('a[href*=".html"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Add a subtle fade effect before navigation
+                    document.body.style.transition = 'opacity 0.3s ease';
+                    document.body.style.opacity = '0.95';
+                    setTimeout(() => {
+                        document.body.style.opacity = '1';
+                    }, 150);
                 });
             });
         }
@@ -759,24 +792,27 @@
             });
         }
         
-        // Parallax effect for hero background
+        // Parallax effect for hero background - DISABLED to prevent overlap
         function handleParallax() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+            // Parallax effect disabled to prevent about section overlap
+            // const scrolled = window.pageYOffset;
+            // const hero = document.querySelector('.hero');
+            // if (hero && scrolled < window.innerHeight) {
+            //     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            // }
         }
         
         // Button hover effects
         function initButtonEffects() {
             document.querySelectorAll('.hero-button').forEach(button => {
                 button.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                    this.style.transform = 'translateY(-2px) scale(1.03)';
+                    this.style.boxShadow = '0 12px 25px rgba(255, 255, 255, 0.25)';
                 });
                 
                 button.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 8px 20px rgba(255, 255, 255, 0.2)';
                 });
             });
         }
@@ -792,14 +828,14 @@
         // Add scroll event listeners
         window.addEventListener('scroll', () => {
             handleNavbarScroll();
-            requestAnimationFrame(handleParallax);
+            // requestAnimationFrame(handleParallax); // Disabled to prevent overlap
         });
         
         // Optimize scroll performance
         let ticking = false;
         function updateOnScroll() {
             handleNavbarScroll();
-            handleParallax();
+            // handleParallax(); // Disabled to prevent overlap
             ticking = false;
         }
         
