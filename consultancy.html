@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackBook Circle - Consultancy</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="hero-animation.css">
     
     <style>
         @font-face {
@@ -207,7 +208,10 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: #000000;
+            background: linear-gradient(135deg, rgba(35, 31, 32, 0.7), rgba(35, 31, 32, 0.4)), url('https://preview.treethemes.com/pine/maindemo-light/wp-content/uploads/sites/3/2025/01/HOMENEW.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -215,21 +219,6 @@
             color: var(--secondary-white);
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.3;
-            z-index: 1;
         }
         
         @keyframes heroGlow {
@@ -249,9 +238,17 @@
             font-size: 38px;
             line-height: 1.2;
             margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            word-wrap: break-word;
+            hyphens: none;
             opacity: 0;
-            animation: fadeInUp 1.2s ease forwards 0.5s;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        .hero-title .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: letterDrop 0.15s ease forwards;
+            transform-origin: center bottom;
         }
         
         .hero-subtitle {
@@ -260,12 +257,12 @@
             opacity: 0;
             animation: fadeInUp 1s ease forwards 1.2s;
             margin-bottom: 3rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         /* What We Do Section */
         .what-we-do {
-            padding: 8rem 2rem;
+            padding: 4rem 2rem;
             background: var(--secondary-white);
             position: relative;
         }
@@ -286,7 +283,7 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: 38px;
             font-weight: 300;
             text-align: center;
             margin-bottom: 4rem;
@@ -300,7 +297,7 @@
         }
         
         .content-text {
-            font-size: 1.2rem;
+            font-size: 1.125rem;
             line-height: 1.8;
             color: #444;
             font-weight: 300;
@@ -321,7 +318,7 @@
         
         /* Expertise Section */
         .expertise {
-            padding: 8rem 2rem;
+            padding: 4rem 2rem;
             background: var(--primary-black);
             color: var(--secondary-white);
             position: relative;
@@ -393,14 +390,14 @@
         }
         
         .card-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
             margin-bottom: 1.5rem;
             color: var(--secondary-white);
         }
         
         .card-description {
-            font-size: 1rem;
+            font-size: 1.125rem;
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 300;
@@ -516,7 +513,7 @@
             }
             
             .section-title {
-                font-size: 2.5rem;
+                font-size: 32px;
             }
         }
         
@@ -550,7 +547,7 @@
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 28px;
                 text-align: center;
             }
             
@@ -597,7 +594,7 @@
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 24px;
             }
             
             .expertise-card {
@@ -605,7 +602,7 @@
             }
             
             .card-title {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -632,7 +629,7 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">ADVISORY & CONSULTING</h1>
+                <h1 class="hero-title" id="heroTitle">Advisory & Consulting</h1>
             </div>
         </section>
 
@@ -731,7 +728,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
         </div>
     </footer>
 
@@ -756,15 +753,13 @@
             if (title) {
                 const text = title.textContent;
                 title.innerHTML = '';
+                title.style.opacity = '1';
                 
                 text.split('').forEach((char, index) => {
                     const span = document.createElement('span');
                     span.textContent = char === ' ' ? '\u00A0' : char;
                     span.className = 'letter';
                     span.style.animationDelay = `${index * 0.08}s`;
-                    span.style.display = 'inline-block';
-                    span.style.opacity = '0';
-                    span.style.animation = 'letterDrop 0.15s ease forwards';
                     title.appendChild(span);
                 });
             }

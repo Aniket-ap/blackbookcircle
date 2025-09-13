@@ -348,7 +348,7 @@
         }
         
         .about-title {
-             font-size: 3rem;
+             font-size: 38px;
              font-weight: 300;
              text-align: left;
              margin-bottom: 1rem;
@@ -356,7 +356,7 @@
          }
         
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1.125rem;
             line-height: 1.6;
             color: var(--text-gray);
             margin-bottom: 3rem;
@@ -367,7 +367,7 @@
         }
         
         .membership-title {
-             font-size: 3rem;
+             font-size: 38px;
              font-weight: 300;
              text-align: left;
              margin-bottom: 1rem;
@@ -375,7 +375,7 @@
          }
         
         .membership-text {
-            font-size: 1rem;
+            font-size: 1.125rem;
             line-height: 1.6;
             color: var(--text-gray);
             margin-bottom: 2rem;
@@ -388,7 +388,7 @@
         }
         
         .criteria-list li {
-            font-size: 1rem;
+            font-size: 1.125rem;
             line-height: 1.6;
             color: var(--text-gray);
             margin-bottom: 0.8rem;
@@ -405,7 +405,7 @@
         }
         
         .membership-footer {
-            font-size: 1rem;
+            font-size: 1.125rem;
             color: var(--text-gray);
             font-style: italic;
         }
@@ -434,9 +434,9 @@
         }
         
         .features-title {
-            font-size: 3.5rem;
+            font-size: 38px;
             font-weight: 300;
-            margin-bottom: 6rem;
+            margin-bottom: 1rem;
             color: var(--secondary-white);
             opacity: 0;
             transform: translateY(30px);
@@ -452,7 +452,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 4rem;
-            margin-bottom: 6rem;
+            margin: 3rem 0;
         }
         
         .feature-card {
@@ -486,7 +486,7 @@
         }
         
         .feature-heading {
-            font-size: 1.3rem;
+            font-size: 1.125rem;
             font-weight: 300;
             line-height: 1.6;
             color: var(--secondary-white);
@@ -494,8 +494,8 @@
         }
         
         .features-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
+            font-size: 1.125rem;
+            font-weight: 200;
             line-height: 1.6;
             color: var(--secondary-white);
             max-width: 900px;
@@ -518,15 +518,20 @@
         }
         
         .join-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
+        .join-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
         .join-title {
-            font-size: 3rem;
+            font-size: 38px;
             font-weight: 300;
             color: var(--primary-black);
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
@@ -542,7 +547,8 @@
             font-weight: 300;
             color: var(--primary-black);
             line-height: 1.8;
-            margin-bottom: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.2s;
@@ -553,19 +559,106 @@
             transform: translateY(0);
         }
         
-        .join-tagline {
-            font-size: 1.125rem;
-            font-weight: 300;
-            color: var(--primary-black);
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.4s;
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
         }
         
-        .join-tagline.animate {
+        .criteria-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .criteria-card.animate {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .criteria-card:nth-child(1) { transition-delay: 0.3s; }
+        .criteria-card:nth-child(2) { transition-delay: 0.5s; }
+        .criteria-card:nth-child(3) { transition-delay: 0.7s; }
+        
+        .criteria-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .criteria-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-black), #333);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .criteria-icon i {
+            font-size: 2rem;
+            color: var(--secondary-white);
+        }
+        
+        .criteria-card:hover .criteria-icon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #333, var(--primary-black));
+        }
+        
+        .criteria-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .criteria-text {
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .join-footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .join-cta {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.9s;
+        }
+        
+        .join-cta.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .join-tagline {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--primary-black);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .membership-link {
+            color: var(--primary-black);
+            text-decoration: underline;
+            font-weight: 400;
+            font-size: 1rem;
         }
         
         /* Asia Pacific Section */
@@ -582,7 +675,7 @@
         }
         
         .apac-title {
-            font-size: 3rem;
+            font-size: 38px;
             font-weight: 300;
             color: var(--secondary-white);
             margin-bottom: 4rem;
@@ -625,6 +718,14 @@
             transform: scale(1.05);
             transform-origin: center;
         }
+        
+        .map-image {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto;
+        }
          
          /* Testimonials Section */
          .testimonials-section {
@@ -635,6 +736,14 @@
          .testimonials-container {
              max-width: 1200px;
              margin: 0 auto;
+         }
+         
+         .testimonials-title {
+             font-size: 38px;
+             font-weight: 300;
+             text-align: center;
+             margin-bottom: 4rem;
+             color: var(--primary-black);
          }
          
          .testimonials-grid {
@@ -870,7 +979,7 @@
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
-                margin-bottom: 4rem;
+                margin: 4rem 0;
             }
             
             .feature-icon {
@@ -959,7 +1068,7 @@
             <h1 class="hero-title">The Inner Circle for Enterprise Leaders</h1>
             <p class="hero-subtitle">Private membership for enterprise decision-makers ready to exchange insight and shape outcomes.</p>
             <div class="hero-buttons">
-                <a href="#" class="hero-button">Join The Circle</a>
+                <a href="contact.html" class="hero-button">Join The Circle</a>
             </div>
             <p class="hero-membership" style="margin-top: 2rem; font-size: 0.9rem; opacity: 0;">Membership is by invitation or peer referral only.</p>
                 <p class="hero-details" style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0; cursor: pointer;"><u>View Membership Details</u></p>
@@ -978,20 +1087,7 @@
                      We bring together verified C-suite leaders from your domain (CIO, CCO, CDO, CTO, CISO, CFO, and beyond) in a curated, confidential network that operates under Chatham House Rules.
                  </p>
                  
-                 <div class="membership-section">
-                     <h2 class="membership-title">Who Can Join</h2>
-                    <p class="membership-text">
-                        Membership is by application only and open to executives who meet all criteria:
-                    </p>
-                    <ul class="criteria-list">
-                        <li>Currently hold a C-suite title in a mid-to-large organisation.</li>
-                        <li>Have strategic decision-making authority and budget responsibility.</li>
-                        <li>Are willing to contribute insights and experiences to the community.</li>
-                    </ul>
-                    <p class="membership-footer">
-                        Membership is by invitation or peer referral only.- <u>view membership details</u>
-                    </p>
-                </div>
+
              </div>
          </div>
       </section>
@@ -1000,6 +1096,7 @@
       <section class="features-section">
           <div class="features-container">
               <h2 class="features-title">Here, you will find</h2>
+              <p class="features-subtitle">You don't just join a network, you join a circle of leaders committed to solving real business challenges together, without vendor noise.</p>
               <div class="features-grid">
                   <div class="feature-card">
                       <div class="feature-icon">
@@ -1020,20 +1117,56 @@
                       <h3 class="feature-heading">Direct access to trusted peers and solution providers only when relevant to your priorities.</h3>
                   </div>
               </div>
-              <p class="features-subtitle">You don't just join a network, you join a circle of leaders committed to solving real business challenges together, without vendor noise.</p>
           </div>
        </section>
        
        <!-- Who Can Join Section -->
        <section class="join-section">
            <div class="join-container">
-               <h2 class="join-title">Who Can Join</h2>
-               <p class="join-description">
-                   Direct access to trusted peers and solution providers only when relevant to your priorities.
-               </p>
-               <p class="join-tagline">
-                   You don't just join a network, you join a circle of leaders committed to solving real business challenges together, without vendor noise.
-               </p>
+               <div class="join-header">
+                   <h2 class="join-title">Who Can Join</h2>
+                   <p class="join-description">
+                       Membership is by application only and open to executives who meet all criteria:
+                   </p>
+               </div>
+               
+               <div class="criteria-grid">
+                   <div class="criteria-card">
+                       <div class="criteria-icon">
+                           <i class="fas fa-crown"></i>
+                       </div>
+                       <div class="criteria-content">
+                           <p class="criteria-text">Currently hold a C-suite title in a mid-to-large organisation.</p>
+                       </div>
+                   </div>
+                   
+                   <div class="criteria-card">
+                       <div class="criteria-icon">
+                           <i class="fas fa-chart-line"></i>
+                       </div>
+                       <div class="criteria-content">
+                           <p class="criteria-text">Have strategic decision-making authority and budget responsibility.</p>
+                       </div>
+                   </div>
+                   
+                   <div class="criteria-card">
+                       <div class="criteria-icon">
+                           <i class="fas fa-handshake"></i>
+                       </div>
+                       <div class="criteria-content">
+                           <p class="criteria-text">Are willing to contribute insights and experiences to the community.</p>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="join-footer">
+                   <div class="join-cta">
+                       <p class="join-tagline">
+                           Membership is by invitation or peer referral only.
+                       </p>
+                       <a href="#" class="membership-link">view membership details</a>
+                   </div>
+               </div>
            </div>
        </section>
         
@@ -1042,23 +1175,7 @@
             <div class="apac-container">
                 <h2 class="apac-title">We Operate Across Asia Pacific</h2>
                 <div class="apac-map">
-                    <svg viewBox="0 0 800 600" class="map-svg">
-                        <!-- Asia Pacific Map SVG -->
-                        <g fill="#FFFFFF" stroke="#333" stroke-width="0.5">
-                            <!-- China -->
-                            <path d="M300 150 L380 140 L400 160 L420 180 L400 200 L380 220 L350 210 L320 190 Z"/>
-                            <!-- India -->
-                            <path d="M250 200 L280 190 L300 210 L290 240 L270 250 L250 240 Z"/>
-                            <!-- Japan -->
-                            <path d="M450 160 L470 150 L480 170 L470 180 L450 175 Z"/>
-                            <!-- Southeast Asia -->
-                            <path d="M320 250 L350 240 L380 260 L370 280 L340 290 L320 280 Z"/>
-                            <!-- Australia -->
-                            <path d="M350 350 L450 340 L480 370 L470 400 L420 410 L370 400 L350 380 Z"/>
-                            <!-- New Zealand -->
-                            <path d="M480 420 L500 415 L510 430 L500 440 L485 435 Z"/>
-                        </g>
-                    </svg>
+                    <img src="south-asia-map.png" alt="South Asia Pacific Map" class="map-image">
                 </div>
             </div>
         </section>
@@ -1066,13 +1183,14 @@
          <!-- Testimonials Section -->
          <section class="testimonials-section">
              <div class="testimonials-container">
+                 <h2 class="testimonials-title">What Our Partners Say</h2>
                  <div class="testimonials-grid">
                      <div class="testimonial-card">
                          <div class="testimonial-quote">
                              <p>"Blackbook Circle enabled us to convert trusted relationships into measurable business growth through peer-led engagements."</p>
                          </div>
                          <div class="testimonial-author">
-                             <p>Priya Mehta, Chief Marketing Officer</p>
+                             <p>Sarah Johnson, Chief Marketing Officer</p>
                          </div>
                      </div>
                      
@@ -1081,7 +1199,7 @@
                              <p>"With Blackbook Circle, our network didn't just grow, it started generating real revenue through peer-led conversations that actually matter."</p>
                          </div>
                          <div class="testimonial-author">
-                             <p>Arjun Malhotra, Head of Business Development</p>
+                             <p>Michael Chen, Head of Business Development</p>
                          </div>
                      </div>
                      
@@ -1090,7 +1208,7 @@
                              <p>"From connections to contracts Blackbook Circle made it happen."</p>
                          </div>
                          <div class="testimonial-author">
-                             <p>Rohan Kapoor, Managing Director</p>
+                             <p>David Thompson, Managing Director</p>
                          </div>
                      </div>
                  </div>
@@ -1123,24 +1241,28 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Enhanced navbar scroll effect
+        let isScrolled = false;
         function handleNavbarScroll() {
             const navbar = document.querySelector('.nav-container');
             const logoImg = document.getElementById('logoImg');
+            const shouldBeScrolled = window.scrollY > 50;
             
-            if (window.scrollY > 50) {
+            if (shouldBeScrolled && !isScrolled) {
+                isScrolled = true;
                 navbar.classList.add('scrolled');
                 logoImg.style.opacity = '0';
                 setTimeout(() => {
                     logoImg.src = 'Blackbook-dark-image.png';
                     logoImg.style.opacity = '1';
                 }, 150);
-            } else {
+            } else if (!shouldBeScrolled && isScrolled) {
+                isScrolled = false;
                 navbar.classList.remove('scrolled');
                 logoImg.style.opacity = '0';
                 setTimeout(() => {
@@ -1150,7 +1272,14 @@
             }
         }
         
-        window.addEventListener('scroll', handleNavbarScroll);
+        // Throttle scroll events to prevent excessive calls
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(handleNavbarScroll, 10);
+        });
 
         // Hero title animation
         function animateTitle() {
@@ -1235,6 +1364,15 @@
             if (joinTitle) observer.observe(joinTitle);
             if (joinDescription) observer.observe(joinDescription);
             if (joinTagline) observer.observe(joinTagline);
+            
+            // Join section new elements
+            const criteriaCards = document.querySelectorAll('.criteria-card');
+            const joinCta = document.querySelector('.join-cta');
+            
+            criteriaCards.forEach(card => {
+                if (card) observer.observe(card);
+            });
+            if (joinCta) observer.observe(joinCta);
             
             // Asia Pacific section elements
             const apacTitle = document.querySelector('.apac-title');

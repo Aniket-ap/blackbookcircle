@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BlackBook Circle</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('Fonts/Montserrat-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('Fonts/Montserrat-Light.otf') format('opentype');
+            font-weight: 300;
+            font-display: swap;
+        }
+        
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-black: #231F20;
+            --secondary-white: #FFFFFF;
+            --accent-gray: #f5f5f5;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            transition: var(--transition);
+            background: transparent;
+        }
+        
+        .nav-container.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-light);
+            padding: 0 2rem;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+            transform: scale(1);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+            transition: all 0.6s ease-in-out;
+            opacity: 1;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--secondary-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-container.scrolled .nav-links a {
+            color: var(--primary-black);
+        }
+        
+        .nav-links a:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: currentColor;
+            transition: var(--transition);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(35, 31, 32, 0.7), rgba(35, 31, 32, 0.4)), url('https://preview.treethemes.com/pine/maindemo-light/wp-content/uploads/sites/3/2025/01/HOMENEW.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--secondary-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: var(--secondary-white);
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-weight: 300;
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            opacity: 0;
+        }
+        
+        .hero-title .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: letterDrop 0.15s ease forwards;
+            transform-origin: center bottom;
+        }
+        
+        @keyframes letterDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) rotateX(90deg) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg) scale(1);
+            }
+        }
+            /* text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        } */
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 6rem 2rem;
+            background: var(--secondary-white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--secondary-white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            transition: var(--transition);
+            background: var(--secondary-white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-black);
+            box-shadow: 0 0 0 3px rgba(35, 31, 32, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-black);
+            color: var(--secondary-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: var(--secondary-white);
+            padding: 6rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-section h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-white);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-white);
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .main-content {
+                padding: 4rem 1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="Blackbook-white-image.png" alt="BlackBook Circle" id="logoImg">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="executives.html">Executives</a></li>
+                <li><a href="vendors.html">Vendors</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <!-- <li><a href="contact.html">Contact</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">Contact Us</h1>
+            <p class="hero-subtitle">Get in touch with our team to explore opportunities</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="contact-section">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Ready to join the BlackBook Circle network? Fill out the form below and we'll get back to you.</p>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="designation">Designation *</label>
+                        <input type="text" id="designation" name="designation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactNo">Contact No. *</label>
+                        <input type="tel" id="contactNo" name="contactNo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Company Name *</label>
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="companyAddress">Company Address *</label>
+                        <input type="text" id="companyAddress" name="companyAddress" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="query">Query *</label>
+                        <textarea id="query" name="query" placeholder="Please describe your inquiry or how you'd like to engage with BlackBook Circle..." required></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="Blackbook-white-image.png" alt="BlackBook Circle">
+                </div>
+                <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with exceptional opportunities across the APAC region.</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="font-bold">Quick Links</h3>
+                <a href="about.html" class="font-light">About</a>
+                <a href="executives.html" class="font-light">Executives</a>
+                <a href="vendors.html" class="font-light">Vendors</a>
+                <a href="consultancy.html" class="font-light">Consultancy</a>
+                <!-- <a href="contact.html" class="font-light">Contact</a> -->
+            </div>
+            <div class="footer-section">
+                <h3 class="font-bold">Contact</h3>
+                <p class="font-light">collin.lawrence@blackbookcircle.com.au</p>
+                <p class="font-light">+61 452 642 426</p>
+                <p class="font-light">BlackBook Circle Level 17, 1 Denison Street North Sydney, NSW 20260</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced navbar scroll effect
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            const logoImg = document.getElementById('logoImg');
+            const scrolled = window.scrollY > 100;
+            
+            if (scrolled) {
+                navbar.classList.add('scrolled');
+                logoImg.style.opacity = '0';
+                setTimeout(() => {
+                    logoImg.src = 'Blackbook-dark-image.png';
+                    logoImg.style.opacity = '1';
+                }, 150);
+            } else {
+                navbar.classList.remove('scrolled');
+                logoImg.style.opacity = '0';
+                setTimeout(() => {
+                    logoImg.src = 'Blackbook-white-image.png';
+                    logoImg.style.opacity = '1';
+                }, 150);
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Hero title letter-by-letter animation
+        function animateHeroTitle() {
+            const heroTitle = document.getElementById('heroTitle');
+            if (!heroTitle) return;
+            
+            const text = heroTitle.textContent;
+            heroTitle.innerHTML = '';
+            heroTitle.style.opacity = '1';
+            
+            // Create spans for each character
+            text.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char; // Use non-breaking space
+                span.className = 'letter';
+                span.style.animationDelay = `${index * 0.08}s`;
+                heroTitle.appendChild(span);
+            });
+        }
+        
+        // Form submission handler
+        function initFormHandler() {
+            const form = document.querySelector('.contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add form submission logic here
+                alert('Thank you for your message! We will get back to you soon.');
+            });
+        }
+        
+        // Initialize all functions
+        document.addEventListener('DOMContentLoaded', function() {
+            initSmoothScrolling();
+            initFormHandler();
+            // Start hero title animation after a short delay
+            setTimeout(animateHeroTitle, 1000);
+        });
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleNavbarScroll);
+    </script>
+</body>
+</html>
