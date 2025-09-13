@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultancy - BlackBook Circle</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>BlackBook Circle - Consultancy</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('Fonts/Montserrat-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('Fonts/Montserrat-Light.otf') format('opentype');
+            font-weight: 300;
+            font-display: swap;
+        }
+        
+        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -16,229 +29,191 @@
         }
         
         :root {
-            --gold: #FFD700;
-            --dark-gold: #B8860B;
-            --black: #000000;
-            --dark-gray: #0a0a0a;
-            --light-gray: #111111;
-            --accent: #1a1a1a;
+            --primary-black: #231F20;
+            --secondary-white: #FFFFFF;
+            --accent-gray: #f5f5f5;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Utility Classes */
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 3rem; }
+        .text-6xl { font-size: 3.75rem; }
+        .text-7xl { font-size: 4.5rem; }
+        
+        .font-light { font-weight: 300; }
+        .font-bold { font-weight: 700; }
+        
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+        
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background: var(--secondary-white);
+            min-height: 100vh;
         }
         
         html {
             scroll-behavior: smooth;
         }
         
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--black);
-            color: white;
-            overflow-x: hidden;
-            line-height: 1.6;
-            position: relative;
+        /* Enhanced smooth scrolling for all elements */
+        * {
+            scroll-behavior: smooth;
         }
         
         /* Smooth scrollbar */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 10px;
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--dark-gray);
+            background: var(--accent-gray);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 3px;
+            background: linear-gradient(180deg, var(--primary-black), #444);
+            border-radius: 5px;
         }
         
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-                        linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            animation: bgShift 20s ease-in-out infinite;
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #444, var(--primary-black));
         }
         
-        @keyframes bgShift {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(1deg); }
-        }
-        
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--gold);
-            border-radius: 50%;
-            animation: particleFloat 15s linear infinite;
-            opacity: 0.3;
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-        
-        /* Navigation - Consistent with other pages */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-        }
-        
+        /* Navigation */
         .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            transition: var(--transition);
+            background: transparent;
+        }
+        
+        .nav-container.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-light);
+            padding: 0 2rem;
+        }
+        
+        .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 10px 0;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
             display: flex;
             align-items: center;
-        }
-        
-        .logo img {
-            height: 65px;
-            width: auto;
-            transition: all 0.3s ease;
-            filter: brightness(1);
-        }
-        
-        .logo:hover img {
-            filter: brightness(1.2);
-            transform: scale(1.05);
-        }
-        
-        .logo::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            background: linear-gradient(45deg, var(--gold), transparent, var(--gold)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: exclude;
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .logo:hover::after {
-            opacity: 1;
-            animation: borderPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes borderPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            text-decoration: none;
+            transition: var(--transition);
+            transform: scale(1);
         }
         
         .logo:hover {
             transform: scale(1.05);
-            text-shadow: 0 0 20px var(--gold);
+        }
+        
+        .logo img {
+            height: 70px;
+            width: auto;
+            transition: all 0.6s ease-in-out;
+            opacity: 1;
+        }
+        
+        .nav-container.scrolled .logo img {
+            content: url('Blackbook-dark-image.png');
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .nav-links a {
-            color: white;
+            color: var(--secondary-white);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: var(--transition);
             position: relative;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.5rem 0;
         }
         
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, var(--gold), transparent);
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .nav-links a:hover::before {
-            opacity: 0.1;
-            animation: shimmer 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .nav-container.scrolled .nav-links a {
+            color: var(--primary-black);
         }
         
         .nav-links a:hover {
-            color: var(--gold);
             transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: currentColor;
+            transition: var(--transition);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
+            background: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: var(--secondary-white);
             position: relative;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,0.6) 100%);
             overflow: hidden;
         }
         
@@ -249,48 +224,189 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-            animation: heroGlow 8s ease-in-out infinite alternate;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 1;
         }
         
         @keyframes heroGlow {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.1); }
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
         }
         
         .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
         }
         
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--gold) 0%, #fff 50%, var(--gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes textGlow {
-            0% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
-            100% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)); }
-        }
-        
-        .hero h2 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        .hero-title {
             font-weight: 300;
+            font-size: 38px;
+            line-height: 1.2;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            animation: fadeInUp 1s ease-out 0.5s both;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 0.5s;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         
+        .hero-subtitle {
+            font-weight: 300;
+            font-size: 1.4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.2s;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        /* What We Do Section */
+        .what-we-do {
+            padding: 8rem 2rem;
+            background: var(--secondary-white);
+            position: relative;
+        }
+        
+        .what-we-do::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(35,31,32,0.1), transparent);
+        }
+        
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary-black);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .content-text:nth-child(2) { animation-delay: 0.2s; }
+        .content-text:nth-child(3) { animation-delay: 0.4s; }
+        .content-text:nth-child(4) { animation-delay: 0.6s; }
+        .content-text:nth-child(5) { animation-delay: 0.8s; }
+        
+        .highlight-text {
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            padding: 8rem 2rem;
+            background: var(--primary-black);
+            color: var(--secondary-white);
+            position: relative;
+        }
+        
+        .expertise::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+        
+        .expertise .section-title {
+            color: var(--secondary-white);
+            text-align: center;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .expertise-card:nth-child(1) { animation-delay: 0.2s; }
+        .expertise-card:nth-child(2) { animation-delay: 0.4s; }
+        .expertise-card:nth-child(3) { animation-delay: 0.6s; }
+        .expertise-card:nth-child(4) { animation-delay: 0.8s; }
+        .expertise-card:nth-child(5) { animation-delay: 1s; }
+        .expertise-card:nth-child(6) { animation-delay: 1.2s; }
+        
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary-white), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .expertise-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-white);
+        }
+        
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+        
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -302,474 +418,401 @@
             }
         }
         
-        /* Main Content Sections */
-        .section {
-            padding: 6rem 2rem;
-            position: relative;
-            overflow: hidden;
+        @keyframes letterDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) rotateX(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
         }
         
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .section-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Simple Section Header */
-        .section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: white;
-            position: relative;
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-        }
-        
-        /* What We Do Content - Simple Text Layout */
-        .what-we-do-content {
-            text-align: left;
-            line-height: 1.8;
-        }
-        
-        .what-we-do-content p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .what-we-do-content p:nth-child(1) { animation-delay: 0.1s; }
-        .what-we-do-content p:nth-child(2) { animation-delay: 0.2s; }
-        .what-we-do-content p:nth-child(3) { animation-delay: 0.3s; }
-        .what-we-do-content p:nth-child(4) { animation-delay: 0.4s; }
-        .what-we-do-content p:nth-child(5) { animation-delay: 0.5s; }
-        .what-we-do-content p:nth-child(6) { animation-delay: 0.6s; }
-        .what-we-do-content p:nth-child(7) { animation-delay: 0.7s; }
-        
-        .what-we-do-content p strong {
-            color: var(--gold);
-            font-weight: 600;
-        }
-        
-        /* Highlight certain phrases */
-        .highlight {
-            color: var(--gold);
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.5;
-        }
-        
-        /* Expertise Grid - Keep existing */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        
-        .expertise-card {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(15px);
-        }
-        
-        .expertise-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .expertise-card:hover::after {
-            opacity: 1;
-        }
-        
-        .expertise-card:hover {
-            transform: translateY(-15px) rotateX(5deg);
-            border-color: var(--gold);
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
-        }
-        
-        .expertise-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .expertise-card p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
+        /* Main content area */
+        .main-content {
+            padding-top: 0;
+            min-height: auto;
         }
         
         /* Footer */
-        footer {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        .footer {
+            background: var(--primary-black);
+            color: var(--secondary-white);
+            padding: 6rem 2rem 3rem;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
         
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
         
         .footer-section h3 {
-            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary-white);
         }
         
         .footer-section p,
         .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            line-height: 1.6;
-            transition: color 0.3s ease;
+            transition: var(--transition);
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 0.95rem;
         }
         
         .footer-section a:hover {
-            color: var(--gold);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background: var(--gold);
-            color: var(--black);
-            transform: translateY(-3px) scale(1.1);
+            color: var(--secondary-white);
+            transform: translateX(5px);
         }
         
         .footer-bottom {
-            text-align: center;
-            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.1);
-            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
         }
         
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .expertise-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .nav-container.scrolled {
+                padding: 0 1rem;
+            }
+            
+            .logo img {
+                height: 100px;
+            }
+            
+            .nav-container.scrolled .logo img {
+                height: 100px;
+            }
+            
             .nav-links {
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 3rem;
+            .hero-title {
+                font-size: 28px;
             }
             
-            .hero h2 {
-                font-size: 1.5rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
-            .section {
-                padding: 4rem 1rem;
-            }
-            
-            .section h2 {
+            .section-title {
                 font-size: 2rem;
+                text-align: center;
             }
             
-            .what-we-do-content p {
-                font-size: 1rem;
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .what-we-do,
+            .expertise {
+                padding: 4rem 1rem;
             }
             
             .expertise-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             
             .expertise-card {
-                padding: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .content-text {
+                font-size: 1.1rem;
+            }
+            
+            .footer {
+                padding: 4rem 1rem 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .expertise-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <div class="particles"></div>
-    
-    <nav>
-        <div class="nav-container">
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <div class="nav-content">
             <a href="index.html" class="logo">
-                <img src="Blackbook-white.png" alt="BlackBook Circle">
+                <img src="Blackbook-white-image.png" alt="BlackBook Circle" id="logoImg">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="consultancy.html">Consultancy</a></li>
                 <li><a href="executives.html">Executives</a></li>
                 <li><a href="vendors.html">Vendors</a></li>
-                <!-- <li><a href="stay-tuned.html">Stay Tuned</a></li> -->
+                <li><a href="consultancy.html">Consultancy</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>ADVISORY & CONSULTING</h1>
-            
-        </div>
-    </section>
-
-    <section class="section" id="what-we-do">
-        <div class="section-content">
-            <h2>What We Do</h2>
-            <div class="what-we-do-content">
-                <p>We're not here to drown you in theory or deliver <span class="highlight">cookie-cutter playbooks</span>.</p>
-                
-                <p>Our consulting is led by <strong>former C-suite practitioners</strong> who've actually been in the trenches implementing, scaling, and delivering transformation at some of the most recognised brands across APAC.</p>
-                
-                <p>You don't have to pay a fortune for the privilege. You don't have to go with the household names. What you do get is <span class="highlight">no flu - just practical, measurable outcomes</span>, delivered one step at a time.</p>
-                
-                <p>Our approach is <strong>phased, intentional, and built for sustainable growth</strong> so you can move fast without losing focus.</p>
-                
-                <p>This isn't advisory from the sidelines. This is <span class="highlight">perspective, strategy, and execution</span> from people who've been exactly where you are now and know how to take you further.</p>
-                
-                <p><strong>Want to see if our approach works for you?</strong> Reach out for a relaxed, no-obligation chat</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">ADVISORY & CONSULTING</h1>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section" id="expertise">
-        <div class="section-content">
-            <h2>Our Expertise</h2>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <h3>Financial Services</h3>
-                    <p>Deep expertise in banking, insurance, and fintech sectors. We understand regulatory requirements, market dynamics, and emerging trends in financial services.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Technology & Innovation</h3>
-                    <p>Cutting-edge insights into technology trends, innovation management, and digital disruption. We help organizations stay ahead in the rapidly evolving tech landscape.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Healthcare & Life Sciences</h3>
-                    <p>Specialized knowledge in healthcare delivery, pharmaceutical development, and medical device innovation. We navigate complex regulatory environments and market challenges.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Manufacturing & Supply Chain</h3>
-                    <p>Comprehensive understanding of manufacturing processes, supply chain optimization, and Industry 4.0 technologies. We drive operational efficiency and resilience.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Energy & Sustainability</h3>
-                    <p>Forward-thinking approach to energy transition, sustainability initiatives, and environmental compliance. We help organizations build sustainable business models.</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>Retail & Consumer Goods</h3>
-                    <p>Market insights into consumer behavior, retail innovation, and brand management. We help businesses adapt to changing consumer preferences and market dynamics.</p>
+        <!-- What We Do Section -->
+        <section class="what-we-do">
+            <div class="section-content">
+                <h2 class="section-title">What We Do</h2>
+                <div class="content-grid">
+                    <p class="content-text">
+                        <span class="highlight-text">We're not here to drown you in theory or deliver cookie-cutter playbooks.</span>
+                        Our consulting is led by former C-suite practitioners who've actually been in the trenches implementing, scaling, and delivering transformation at some of the most recognised brands across APAC.
+                    </p>
+                    <p class="content-text">
+                        You don't have to pay a fortune for the privilege. You don't have to go with the household names. <span class="highlight-text">What you do get is no flu - just practical, measurable outcomes, delivered one step at a time.</span>
+                    </p>
+                    <p class="content-text">
+                        Our approach is phased, intentional, and built for sustainable growth so you can move fast without losing focus.
+                    </p>
+                    <p class="content-text">
+                        <span class="highlight-text">This isn't advisory from the sidelines.</span> This is perspective, strategy, and execution from people who've been exactly where you are now and know how to take you further.
+                    </p>
+                    <p class="content-text">
+                        Want to see if our approach works for you? Reach out for a relaxed, no-obligation chat.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
+        <!-- Expertise Section -->
+        <section class="expertise">
+            <div class="section-content">
+                <h2 class="section-title">Our Expertise</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <h3 class="card-title">Customer Experience Transformation</h3>
+                        <p class="card-description">
+                            Redesign end-to-end customer journeys, uncover friction points, and implement strategies that boost satisfaction, loyalty, and business outcomes.
+                        </p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3 class="card-title">Employee Experience & Engagement</h3>
+                        <p class="card-description">
+                            Create listening posts, feedback loops, and cultural initiatives that align teams, increase productivity, and improve employee satisfaction.
+                        </p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3 class="card-title">Digital & Technology Transformation</h3>
+                        <p class="card-description">
+                            Move past hype and deliver real benefits by aligning technology, AI, and digital strategies with measurable business impact.
+                        </p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3 class="card-title">AI & Intelligent Automation</h3>
+                        <p class="card-description">
+                            Leverage AI, automation, and data-driven insights to optimise service, enhance experiences, and drive operational efficiency.
+                        </p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3 class="card-title">Program & Change Management</h3>
+                        <p class="card-description">
+                            Oversee complex initiatives from start to finish, ensuring change is effectively managed and delivers maximum impact.
+                        </p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3 class="card-title">Business Operations & Strategic Optimisation</h3>
+                        <p class="card-description">
+                            Deliver practical, people-centered interventions that optimise processes, legacy systems, and organisational performance during growth or transition.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>BlackBook Circle</h3>
-                <p>The trusted network for C-Suite excellence, connecting visionary leaders with transformative opportunities.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <div class="footer-logo">
+                    <img src="Blackbook-white-image.png" alt="BlackBook Circle">
                 </div>
+                <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with exceptional opportunities across the APAC region.</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About Us</a></p>
-                <p><a href="consultancy.html">Consultancy</a></p>
-                <p><a href="executives.html">Executives</a></p>
+                <h3 class="font-bold">Quick Links</h3>
+                <a href="about.html" class="font-light">About</a>
+                <a href="executives.html" class="font-light">Executives</a>
+                <a href="vendors.html" class="font-light">Vendors</a>
+                <a href="consultancy.html" class="font-light">Consultancy</a>
             </div>
             <div class="footer-section">
-                <h3>Services</h3>
-                <p><a href="#">Executive Search</a></p>
-                <p><a href="#">Strategic Consulting</a></p>
-                <p><a href="#">Leadership Development</a></p>
-                <p><a href="#">Board Advisory</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: info@blackbookcircle.com</p>
-                <p>Phone: +1 (555) 123-4567</p>
-                <p>Address: 123 Business Ave, Suite 100</p>
+                <h3 class="font-bold">Contact</h3>
+                <p class="font-light">collin.lawrence@blackbookcircle.com.au</p>
+                <p class="font-light">+61 452 642 426</p>
+                <p class="font-light">BlackBook Circle Level 17, 1 Denison Street North Sydney, NSW 20260</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 BlackBook Circle. All rights reserved.</p>
+            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
     </footer>
 
     <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            const particleCount = 50;
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const logoImg = document.getElementById('logoImg');
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                logoImg.src = 'Blackbook-dark-image.png';
+            } else {
+                navbar.classList.remove('scrolled');
+                logoImg.src = 'Blackbook-white-image.png';
+            }
+        });
+
+        // Letter-by-letter animation for hero title
+        function animateHeroTitle() {
+            const title = document.querySelector('.hero-title');
+            if (title) {
+                const text = title.textContent;
+                title.innerHTML = '';
+                
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.className = 'letter';
+                    span.style.animationDelay = `${index * 0.08}s`;
+                    span.style.display = 'inline-block';
+                    span.style.opacity = '0';
+                    span.style.animation = 'letterDrop 0.15s ease forwards';
+                    title.appendChild(span);
+                });
             }
         }
-        
-        // Initialize GSAP ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Hero animations
-        gsap.timeline()
-            .from('.hero h1', {
-                duration: 1.2,
-                y: 100,
-                opacity: 0,
-                ease: 'power3.out'
-            })
-            .from('.hero h2', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power2.out'
-            }, '-=0.5');
-        
-        // Section animations
-        gsap.utils.toArray('.section').forEach(section => {
-            gsap.from(section.querySelector('h2'), {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power2.out'
+
+        // Scroll-triggered animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        
+                        // Special handling for expertise cards
+                        if (entry.target.classList.contains('expertise-card')) {
+                            const cards = document.querySelectorAll('.expertise-card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, index * 200);
+                            });
+                        }
+                        
+                        // Special handling for content text
+                        if (entry.target.classList.contains('content-text')) {
+                            const texts = document.querySelectorAll('.content-text');
+                            texts.forEach((text, index) => {
+                                setTimeout(() => {
+                                    text.style.opacity = '1';
+                                    text.style.transform = 'translateY(0)';
+                                }, index * 150);
+                            });
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
-        });
-        
-        // What We Do content animation
-        gsap.utils.toArray('.what-we-do-content p').forEach((p, index) => {
-            gsap.from(p, {
-                scrollTrigger: {
-                    trigger: p,
-                    start: 'top 90%',
-                    end: 'bottom 10%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.8,
-                y: 30,
-                opacity: 0,
-                delay: index * 0.1,
-                ease: 'power2.out'
+            
+            // Observe elements for animation
+            document.querySelectorAll('.section-title, .content-text, .expertise-card').forEach(el => {
+                observer.observe(el);
             });
-        });
-        
-        // Expertise cards animation
-        gsap.utils.toArray('.expertise-card').forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    end: 'bottom 15%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.8,
-                y: 80,
-                rotationX: 15,
-                opacity: 0,
-                delay: index * 0.15,
-                ease: 'power2.out'
-            });
-        });
-        
-        // Parallax effect for hero
-        gsap.to('.hero::before', {
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            },
-            y: '50%',
-            ease: 'none'
-        });
-        
-        // Initialize particles
-        createParticles();
-        
+        }
+
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -782,6 +825,38 @@
                     });
                 }
             });
+        });
+
+        // Enhanced card hover effects
+        function initCardEffects() {
+            document.querySelectorAll('.expertise-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Initialize all animations and effects
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                animateHeroTitle();
+            }, 1000);
+            
+            initScrollAnimations();
+            initCardEffects();
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     </script>
 </body>
