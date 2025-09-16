@@ -321,9 +321,10 @@
         }
 
         .enterprise-section h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+            font-size: 38px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
             color: var(--primary-black);
         }
 
@@ -336,7 +337,8 @@
         }
 
         /* Objectives and Why it Works Section */
-        .objectives-why-section {
+        /* What Makes Our Approach Different Section */
+        .approach-different-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #231F20 50%, #2a2a2a 100%);
             color: #E8E8E8;
             padding: 100px 0;
@@ -344,7 +346,7 @@
             overflow: hidden;
         }
 
-        .objectives-why-section::before {
+        .approach-different-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -357,6 +359,93 @@
             background-size: 60px 60px, 80px 80px;
             animation: floatingDots 20s linear infinite;
             z-index: 1;
+        }
+
+        .approach-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-content {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .approach-different-section h2 {
+            font-size: 38px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #E8E8E8;
+        }
+
+        .intro-text {
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(232, 232, 232, 0.8);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #E8E8E8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #E8E8E8;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes floatingDots {
@@ -551,57 +640,365 @@
                 0 0 0 1px rgba(255,255,255,0.2);
         }
 
-        /* Formats Section */
-        .formats-section {
+        /* How It Works Section */
+        .how-it-works-section {
             padding: 8rem 0 4rem 0;
             background: var(--secondary-white);
         }
 
-        .formats-section h2 {
-            font-size: 38px;
-            font-weight: 300;
+        .how-it-works-section .section-header {
             text-align: center;
             margin-bottom: 4rem;
+        }
+
+        .how-it-works-section h2 {
+            font-size: 38px;
+            font-weight: 300;
             color: var(--primary-black);
+            margin-bottom: 1.5rem;
         }
 
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .how-it-works-section .section-intro {
+            font-size: 1.1rem;
+            color: var(--primary-black);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .format-card {
-            background: transparent;
+        .step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
             padding: 2rem;
+            background: white;
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            text-align: left;
-            transition: border-color 0.3s ease;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .format-card:hover {
+        .step-card:hover {
             border-color: #231F20;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
-        .format-card h3 {
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-black);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .step-content h3 {
             font-size: 1.3rem;
             font-weight: 400;
             margin-bottom: 1rem;
             color: var(--primary-black);
         }
 
-        .format-card p {
+        .step-content p {
             font-size: 0.95rem;
             line-height: 1.6;
             color: var(--primary-black);
             opacity: 0.8;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .step-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .steps-container {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Vendor Partnership Benefits Section */
+        .vendor-benefits-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #231F20 50%, #2a2a2a 100%);
+            color: #E8E8E8;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .vendor-benefits-section .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .vendor-benefits-section h2 {
+            font-size: 38px;
+            font-weight: 300;
+            color: #E8E8E8;
+            margin-bottom: 1.5rem;
+        }
+
+        .vendor-benefits-section .section-intro {
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: rgba(232, 232, 232, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 0;
+            background: transparent;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: rgba(232, 232, 232, 0.1);
+            border: 1px solid rgba(232, 232, 232, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E8E8E8;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-icon {
+            background: rgba(232, 232, 232, 0.2);
+            border-color: rgba(232, 232, 232, 0.4);
+            transform: scale(1.1);
+        }
+
+        .benefit-content h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #E8E8E8;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(232, 232, 232, 0.8);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .benefit-item:hover {
+                transform: none;
+            }
+        }
+
+        /* Vendor Principles Section */
+        .vendor-principles-section {
+            padding: 6rem 0;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .principles-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vendor-principles-section h2 {
+            font-size: 38px;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .principles-intro {
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: #5a6c7d;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .principles-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .principles-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2c3e50, #1a1a1a);
+            border-radius: 1px;
+        }
+
+        .principle-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .principle-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .principle-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-right: 2rem;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .principle-item:hover .principle-number {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        .principle-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #2c3e50;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .principle-item:hover .principle-content {
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .principle-content h3 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .principle-content p {
+            font-size: 1rem;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .vendor-principles-section {
+                padding: 4rem 0;
+            }
+
+            .principles-timeline::before {
+                left: 20px;
+            }
+
+            .principle-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-right: 1.5rem;
+            }
+
+            .principle-content {
+                padding: 1.5rem;
+            }
+
+            .principle-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .principle-item:hover .principle-content {
+                transform: none;
+            }
         }
 
         /* Testimonials Section */
         .testimonials-section {
             padding: 4rem 0 8rem 0;
-            background: var(--secondary-white);
+            background: linear-gradient(135deg, #1a1a1a 0%, #231F20 50%, #2a2a2a 100%);
+            color: #E8E8E8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px, 80px 80px;
+            animation: floatingDots 20s linear infinite;
+            z-index: 1;
+        }
+
+        .testimonials-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .testimonials-section h2 {
@@ -609,7 +1006,7 @@
             font-weight: 300;
             text-align: center;
             margin-bottom: 4rem;
-            color: var(--primary-black);
+            color: #E8E8E8;
         }
 
         .testimonials-grid {
@@ -620,39 +1017,62 @@
         }
 
         .testimonial-card {
-            background: var(--accent-gray);
-            padding: 3rem;
-            border-radius: 15px;
+            background: transparent;
+            padding: 2rem 0;
+            border-radius: 0;
             text-align: center;
+            border: none;
+            backdrop-filter: none;
         }
 
         .testimonial-card p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             font-weight: 300;
             font-style: italic;
             margin-bottom: 2rem;
-            color: var(--primary-black);
-            line-height: 1.6;
+            color: #E8E8E8;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .testimonial-author strong {
             display: block;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--primary-black);
+            color: #E8E8E8;
+            font-size: 1.1rem;
         }
 
         .testimonial-author span {
             font-weight: 300;
-            color: rgba(35, 31, 32, 0.7);
+            color: rgba(232, 232, 232, 0.8);
+            font-size: 0.95rem;
         }
-
+        
         .cta-section {
             text-align: center;
             padding: 4rem 2rem;
-            background: var(--primary-black);
+            background: var(--secondary-white);
             border-radius: 20px;
-            color: var(--secondary-white);
+            color: var(--primary-black);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--primary-black);
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: rgba(35, 31, 32, 0.8);
+            line-height: 1.6;
         }
 
         .cta-buttons {
@@ -681,14 +1101,15 @@
         }
 
         .btn-primary {
-            background-color: transparent;
+            background-color: var(--primary-black);
             color: var(--secondary-white);
-            border: 2px solid var(--secondary-white);
+            border: 2px solid var(--primary-black);
         }
 
         .btn-primary:hover {
-            background-color: var(--secondary-white);
+            background-color: transparent;
             color: var(--primary-black);
+            border: 2px solid var(--primary-black);
         }
 
         .btn-secondary {
@@ -1027,13 +1448,13 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title" id="heroTitle">Enter the Circle, as a Trusted Advisor</h1>
+                <h1 class="hero-title" id="heroTitle">Exclusive Access to APAC’s Most Senior Executives</h1>
                 <p class="hero-subtitle">
-                    Connect with decision-makers through curated, peer-led engagements designed to accelerate trust, relationships, and growth.
+                    We help technology vendors build trust and accelerate growth through curated executive engagements designed to deliver measurable business outcomes.
                 </p>
                 <div class="hero-buttons">
                     <a href="contact.html" class="hero-button">Partner With Us</a>
-                    <a href="#strategy" class="hero-button">Book a Strategy Call</a>
+                    <!-- <a href="#strategy" class="hero-button">Book a Strategy Call</a> -->
                 </div>
             </div>
         </section>
@@ -1041,111 +1462,229 @@
         <!-- Enterprise Buyers Section -->
         <section class="enterprise-section">
             <div class="container">
+                <h2>Why Blackbook Circle for Vendors</h2>
                 <div class="content-wrapper">
-                    <p>Our network consists of decision-makers and influencers from Fortune 500 companies, unicorn startups, and established enterprises across the APAC region. These executives are actively seeking innovative solutions, strategic partnerships, and premium services to drive their organizations forward.</p>
-                    <p>By joining BlackBook Circle as a trusted vendor, you gain direct access to C-Suite executives who have the authority and budget to make significant purchasing decisions. Our members value quality, innovation, and strategic partnerships that can transform their businesses.</p>
+                    <p>In today's competitive market, enterprise buyers are harder to reach than ever.</p>
+                    <p>Traditional sales and marketing channels are oversaturated, making it difficult to create meaningful engagement with senior decision-makers.</p>
+                    <p>Blackbook Circle provides a precision pathway for technology vendors to connect with executives in a trusted, curated environment.</p>
+                    <p>By focusing on relevance and trust, we move beyond transactional interactions to create partnerships that lead to accelerated pipeline and measurable outcomes.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Objectives and Why it Works Section -->
-        <section class="objectives-why-section">
+        <!-- What Makes Our Approach Different Section -->
+        <section class="approach-different-section">
             <div class="container">
-                <div class="objectives-why-content">
-                    <!-- Our Objectives -->
-                    <div class="objectives-half">
-                        <div class="content-wrapper">
-                            <h2>Our Objectives</h2>
-                            <div class="objectives-list">
-                                <p>We align on your target accounts, personas, and growth outcomes.</p>
-                                <p>Curate & Host : We design peer-led engagements that foster credibility and trust.</p>
-                                <p>Engage as a Partner You show up as a trusted advisor, building relationships and advancing opportunities.</p>
-                            </div>
+                <div class="approach-content">
+                    <div class="intro-content">
+                        <h2>What Makes Our Approach Different</h2>
+                        <p class="intro-text">At Blackbook Circle, we don't just facilitate introductions, we provide unparalleled insights into enterprise buyer priorities and pain points, drawn directly from our curated network of senior executives.</p>
+                        <p class="intro-text">This inside perspective allows us to shape engagements that speak to what executives care about most, making every interaction relevant, meaningful, and actionable.</p>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>Curated Relevance</h3>
+                            <p>Our deep understanding of enterprise challenges ensures that every engagement aligns with executive priorities and your strategic GTM objectives.</p>
                         </div>
-                        <div class="image-wrapper">
-                            <img src="Vendors.jpg" alt="Our Objectives" class="section-image" />
+                        
+                        <div class="feature-card">
+                            <h3>Vendor-Agnostic Forums</h3>
+                            <p>Executives participate freely, knowing discussions are focused on outcomes, not a sales agenda.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h3>Trust as the Foundation</h3>
+                            <p>We position your brand as a strategic partner, not just a vendor, helping you build relationships that last.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h3>Measurable ROI</h3>
+                            <p>Our model is designed with outcomes in mind, so you can clearly connect executive engagement to pipeline growth and revenue impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How It Works</h2>
+                    <p class="section-intro">Every partnership with Blackbook Circle is designed to deliver precision and tangible results.</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">
+                            <span>01</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Define Your Strategic Objectives</h3>
+                            <p>Collaborate with our team to align on your target accounts, GTM strategy, and desired outcomes.</p>
                         </div>
                     </div>
                     
-                    <!-- Why it Works -->
-                    <div class="why-it-works-half">
-                        <div class="content-wrapper">
-                            <h2>Why It Works</h2>
-                            <div class="why-list">
-                                <p>We remove barriers that stall enterprise growth</p>
-                                <p>Trust Gaps: Buyers trust peers, not pitches.</p>
-                                <p>Complex Buying Committees: We unite stakeholders and focus priorities.</p>
-                                <p>Noise & Distraction: No passive audiences. Every room is curated and intentional</p>
-                            </div>
+                    <div class="step-card">
+                        <div class="step-number">
+                            <span>02</span>
                         </div>
-                        <div class="image-wrapper">
-                            <img src="Vendors-2.jpg" alt="Why it Works" class="section-image" />
+                        <div class="step-content">
+                            <h3>Curated Executive Engagements</h3>
+                            <p>Participate in bespoke boardroom experiences and private discussions designed to align with executive priorities and your growth strategy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">
+                            <span>03</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Actionable Insights & Acceleration</h3>
+                            <p>Post-engagement, you'll gain intelligence to sharpen your ABM campaigns and create follow-up opportunities that turn trust into tangible pipeline movement.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Our Flagship Formats Section -->
-        <section class="formats-section">
+        <!-- Vendor Partnership Benefits Section -->
+        <section class="vendor-benefits-section">
             <div class="container">
-                <h2>Our Flagship Formats</h2>
-                <div class="formats-grid">
-                    <div class="format-card">
-                        <h3>Executive Boardrooms</h3>
-                        <p>Invite-only, outcome-driven discussions with a handpicked group of decision-makers, designed to drive trust and consensus quickly.</p>
+                <div class="section-header">
+                    <h2>Vendor Partnership Benefits</h2>
+                    <p class="section-intro">Our partnerships are built to drive high-impact outcomes, ensuring every interaction delivers clear value.</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Accelerate Pipeline Growth</h3>
+                            <p>Build authentic relationships that lead to new enterprise opportunities.</p>
+                        </div>
                     </div>
-                    <div class="format-card">
-                        <h3>Executive Briefings</h3>
-                        <p>Bespoke sessions built to position your brand as a thought leader while engaging the key buying committee members directly. (All details are handled end-to-end: from curation to post-engagement insights.)</p>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11H1v12h8V11zM23 11h-8v12h8V11zM15 7H9v4h6V7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Enhance ABM Effectiveness</h3>
+                            <p>Leverage direct executive insights to strengthen your account-based marketing campaigns.</p>
+                        </div>
                     </div>
-                    <div class="format-card">
-                        <h3>What You Can Expect</h3>
-                        <p>Relevance by Design — Every room is tailored to your market priorities.</p>
-                        <ul>
-                            <li>Neutral Ground — Peer-led dialogue ensures credibility.</li>
-                            <li>Momentum — Conversations that create meaningful next steps Overview - Blackbook Circle.</li>
-                        </ul>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Position as a Strategic Partner</h3>
+                            <p>Engage executives on their priorities, establishing credibility and trust from day one.</p>
+                        </div>
                     </div>
-                    <div class="format-card">
-                        <h3>Fit Criteria</h3>
-                        <p>Partnerships are limited and vetted. Best suited for category leaders and growth brands with a clear point of view and a commitment to peer-led value creation.</p>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Shorten Sales Cycles</h3>
+                            <p>Connect directly with senior decision-makers in curated, distraction-free environments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Achieve Measurable ROI</h3>
+                            <p>Demonstrate clear linkage between executive engagement and business impact.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+        <!-- Our Principles for Vendor Success Section -->
+        <section class="vendor-principles-section">
+            <div class="container">
+                <div class="principles-header">
+                    <h2>Our Principles for Vendor Success</h2>
+                    <p class="principles-intro">These guiding principles ensure every partnership remains exclusive, trusted, and outcome-focused:</p>
+                </div>
+                
+                <div class="principles-timeline">
+                    <div class="principle-item">
+                        <div class="principle-number">01</div>
+                        <div class="principle-content">
+                            <h3>Executive-First Approach</h3>
+                            <p>We prioritise the challenges and needs of the executives you want to serve, ensuring every interaction creates genuine value.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="principle-number">02</div>
+                        <div class="principle-content">
+                            <h3>Exclusivity & Scarcity</h3>
+                            <p>Limited engagement slots per quarter keep executive attention high and competition low.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="principle-number">03</div>
+                        <div class="principle-content">
+                            <h3>Confidentiality & Trust</h3>
+                            <p>Every discussion operates under Chatham House Rules, fostering open and honest dialogue.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-item">
+                        <div class="principle-number">04</div>
+                        <div class="principle-content">
+                            <h3>Shared Success Metrics</h3>
+                            <p>We align with you on what success looks like and track progress to ensure tangible outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voices From Our Partners Section -->
         <section class="testimonials-section">
             <div class="container">
-                <h2>What Our Partners Say</h2>
+                <h2>Voices From Our Partners</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
-                        <p>"Blackbook Circle enabled us to convert trusted relationships into measurable business growth through peer-led engagements."</p>
+                        <p>"I've worked with Collin across multiple roles in different organisations and have always been impressed by how he always took the time to understand the outcome I was trying to achieve, and moulding something that was right for what I needed. His network is extensive and he's always been very generous with his time and facilitating connections, both at his events and otherwise."</p>
                         <div class="testimonial-author">
-                            <strong>Sarah Johnson</strong>
-                            <span>Chief Marketing Officer</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"With Blackbook Circle, our network didn't just grow, it started generating real revenue through peer-led conversations that actually matter."</p>
-                        <div class="testimonial-author">
-                            <strong>Michael Chen</strong>
-                            <span>Head of Business Development</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"From connections to contracts Blackbook Circle made it happen."</p>
-                        <div class="testimonial-author">
-                            <strong>David Thompson</strong>
-                            <span>Managing Director</span>
+                            <strong>Marlon Perera</strong>
+                            <span>Group Manager, Regional Marketing, Zendesk</span>
                         </div>
                     </div>
                 </div>
                 <div class="cta-section">
+                    <h2>Partnership CTA</h2>
+                    <p>If you're ready to elevate your executive engagement strategy, let's explore how Blackbook Circle can help you build trust, accelerate pipeline, and achieve measurable growth.</p>
                     <div class="cta-buttons">
                         <a href="contact.html" class="btn btn-primary">Book a Strategy Call</a>
-                        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
                     </div>
                 </div>
             </div>
