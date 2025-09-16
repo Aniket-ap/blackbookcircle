@@ -6,6 +6,7 @@
     <title>BlackBook Circle - Consultancy</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="hero-animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         @font-face {
@@ -319,7 +320,7 @@
             font-size: 38px;
             font-weight: 300;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-black);
         }
         .features-subtitle {
@@ -328,10 +329,11 @@
             line-height: 1.6;
             color: var(--secondary-white);
             max-width: 900px;
-            margin: 0 auto;
+            margin: 0 auto 3rem auto;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.8s;
+            text-align: center;
         }
         
         .features-subtitle.animate {
@@ -438,6 +440,36 @@
             transform: translateX(0);
         }
         
+        .card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            margin: 0 0 2rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card-icon i {
+            font-size: 1.5rem;
+            color: var(--secondary-white);
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-card:hover .card-icon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .expertise-card:hover .card-icon i {
+            color: #fff;
+            transform: rotate(5deg);
+        }
+        
         .card-title {
             font-size: 1.2rem;
             font-weight: 300;
@@ -479,6 +511,162 @@
         .main-content {
             padding-top: 0;
             min-height: auto;
+        }
+
+        /* Our Approach Section */
+        .approach-section {
+            background: var(--secondary-white);
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .approach-step {
+            text-align: center;
+            padding: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,248,248,0.9));
+            border-radius: 20px;
+            border: 1px solid rgba(35,31,32,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #231f20, #666, #231f20);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .approach-step:hover::before {
+            transform: translateX(0);
+        }
+
+        .approach-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .approach-step.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--primary-black);
+            position: relative;
+        }
+
+        .step-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--primary-black);
+            border-radius: 1px;
+        }
+
+        .step-description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--primary-black);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: var(--primary-black);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section .section-title {
+            color: var(--secondary-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section .features-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+        }
+
+        .approach-section .features-subtitle {
+            color: var(--primary-black);
+            margin-bottom: 3rem;
+        }
+
+        .cta-button-container {
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px !important;
+            background-color: transparent;
+            color: rgb(232, 232, 232);
+            text-decoration: none;
+            border: 2px solid rgb(232, 232, 232);
+            border-radius: 2em;
+            font-weight: 600 !important;
+            font-size: 13px;
+            transition: var(--transition);
+            min-width: 200px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-white);
+            color: var(--primary-black);
+            border-color: var(--secondary-white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .approach-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .approach-section,
+            .cta-section {
+                padding: 4rem 1rem;
+            }
+            
+            .step-title {
+                font-size: 1.3rem;
+            }
+            
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
         }
         
         /* Footer */
@@ -718,41 +906,93 @@
                 <p class="features-subtitle">We focus on the areas that matter most to enterprise and government leaders navigating transformation.</p>
                 <div class="expertise-grid">
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
                         <h3 class="card-title">Customer Experience Transformation</h3>
                         <p class="card-description">
-                            Redesign end-to-end customer journeys, uncover friction points, and implement strategies that boost satisfaction, loyalty, and business outcomes.
+                            Redesign customer journeys, uncover friction points, and implement strategies that boost satisfaction, loyalty, and business outcomes.
                         </p>
                     </div>
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                         <h3 class="card-title">Employee Experience & Engagement</h3>
                         <p class="card-description">
-                            Create listening posts, feedback loops, and cultural initiatives that align teams, increase productivity, and improve employee satisfaction.
+                            Build cultures that thrive through listening posts, feedback loops, and engagement programs that align teams and drive productivity.
                         </p>
                     </div>
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
                         <h3 class="card-title">Digital & Technology Transformation</h3>
                         <p class="card-description">
-                            Move past hype and deliver real benefits by aligning technology, AI, and digital strategies with measurable business impact.
+                            Align technology, AI, and digital initiatives with strategies that deliver tangible business impact.
                         </p>
                     </div>
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
                         <h3 class="card-title">AI & Intelligent Automation</h3>
                         <p class="card-description">
-                            Leverage AI, automation, and data-driven insights to optimise service, enhance experiences, and drive operational efficiency.
+                            Use AI and automation to optimise service delivery, improve customer experiences, and increase operational efficiency.
                         </p>
                     </div>
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
                         <h3 class="card-title">Program & Change Management</h3>
                         <p class="card-description">
-                            Oversee complex initiatives from start to finish, ensuring change is effectively managed and delivers maximum impact.
+                            Lead complex initiatives from start to finish, ensuring change is adopted and delivers maximum value.
                         </p>
                     </div>
                     <div class="expertise-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
                         <h3 class="card-title">Business Operations & Strategic Optimisation</h3>
                         <p class="card-description">
-                            Deliver practical, people-centered interventions that optimise processes, legacy systems, and organisational performance during growth or transition.
+                            Streamline processes, modernise legacy systems, and improve organisational performance during periods of growth or transition.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach Section -->
+        <section class="approach-section">
+            <div class="section-content">
+                <h2 class="section-title">Our Approach</h2>
+                <p class="features-subtitle">We take a phased and intentional approach, focused on delivering outcomes that last:</p>
+                
+                <div class="approach-grid">
+                    <div class="approach-step">
+                        <h3 class="step-title">Understand & Align</h3>
+                        <p class="step-description">Identify current challenges, goals, and barriers to success.</p>
+                    </div>
+                    <div class="approach-step">
+                        <h3 class="step-title">Design & Build</h3>
+                        <p class="step-description">Develop tailored strategies and solutions backed by real-world expertise.</p>
+                    </div>
+                    <div class="approach-step">
+                        <h3 class="step-title">Execute & Measure</h3>
+                        <p class="step-description">Partner with you to implement, track progress, and deliver measurable impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="section-content">
+                <h2 class="section-title">Want to see if our approach is right for you?</h2>
+                <p class="features-subtitle">Let's start with a relaxed, no-obligation conversation about your challenges and goals.</p>
+                <div class="cta-button-container">
+                    <a href="contact.html" class="cta-button">Book a Strategy Call</a>
                 </div>
             </div>
         </section>
@@ -857,7 +1097,7 @@
             });
             
             // Observe elements for animation
-            document.querySelectorAll('.section-title, .content-text, .expertise-card').forEach(el => {
+            document.querySelectorAll('.section-title, .features-subtitle, .content-text, .expertise-card, .approach-step').forEach(el => {
                 observer.observe(el);
             });
         }
