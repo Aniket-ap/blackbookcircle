@@ -359,7 +359,7 @@
             font-size: 1.125rem;
             line-height: 1.6;
             color: var(--text-gray);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
         
         .membership-section {
@@ -369,7 +369,7 @@
         .membership-title {
              font-size: 38px;
              font-weight: 300;
-             text-align: left;
+             text-align: center;
              margin-bottom: 1rem;
              color: var(--primary-black);
          }
@@ -450,9 +450,23 @@
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem 2rem;
+            margin: 3rem auto;
+            max-width: 1000px;
+            justify-items: center;
+        }
+        
+        .features-grid .feature-card:nth-child(4) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+            margin-left: 25%;
+        }
+        
+        .features-grid .feature-card:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 2;
+            margin-right: 25%;
         }
         
         .feature-card {
@@ -490,7 +504,7 @@
             font-weight: 300;
             line-height: 1.6;
             color: var(--secondary-white);
-            margin: 0;
+            margin: 0 0 1rem 0;
         }
         
         .features-subtitle {
@@ -508,6 +522,992 @@
         .features-subtitle.animate {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* How It Works Section */
+        .how-it-works-section {
+            background: var(--secondary-white);
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+        }
+        
+        .how-it-works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .how-it-works-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .how-it-works-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--primary-black);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .how-it-works-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .how-it-works-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--primary-black);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .how-it-works-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .how-it-works-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .flow-step {
+            flex: 1;
+            max-width: 300px;
+            min-width: 250px;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .flow-step.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .flow-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-black), #333);
+            color: var(--secondary-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary-black);
+            margin: 2rem 0 1.5rem 0;
+            opacity: 0.8;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--primary-black);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        
+        .step-description {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .flow-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease 0.4s;
+        }
+        
+        .flow-connector.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .connector-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #ddd, var(--primary-black), #ddd);
+            position: relative;
+        }
+        
+        .connector-arrow {
+            margin-left: -10px;
+            font-size: 1.2rem;
+            color: var(--primary-black);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .how-it-works-flow {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .flow-connector {
+                transform: rotate(90deg);
+            }
+            
+            .connector-line {
+                width: 40px;
+            }
+            
+            .flow-step {
+                max-width: 100%;
+                min-width: auto;
+            }
+            
+            .how-it-works-title {
+                font-size: 28px;
+            }
+            
+            .how-it-works-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Who Is Part of the Circle Section */
+        .circle-members-section {
+            background: var(--primary-black);
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+        .circle-members-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .circle-members-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .circle-members-title {
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--secondary-white);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .circle-members-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .circle-members-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .circle-members-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .role-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .role-category.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .role-category:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--secondary-white);
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .roles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .role-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .role-item:last-child {
+            border-bottom: none;
+        }
+        
+        .role-item:hover {
+            padding-left: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+        
+        .role-title {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            flex: 1;
+        }
+        
+        .role-abbr {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 1rem;
+        }
+        
+        /* Mobile Responsiveness for Circle Members */
+        @media (max-width: 768px) {
+            .circle-members-section {
+                padding: 4rem 1rem;
+            }
+            
+            .circle-members-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .circle-members-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .roles-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+            
+            .role-category {
+                padding: 2rem;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .category-title {
+                font-size: 1.1rem;
+            }
+            
+            .role-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .role-abbr {
+                margin-left: 0;
+                align-self: flex-end;
+            }
+        }
+        
+        /* Industries Represented Section */
+        .industries-section {
+            background: #ffffff;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+        
+        .industries-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .industries-header {
+            margin-bottom: 5rem;
+        }
+        
+        .industries-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .industries-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .industries-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .industries-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .industry-item {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .industry-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .industry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-blue);
+        }
+        
+        .industry-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+        }
+        
+        .industry-detail {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Mobile Responsive for Industries Section */
+        @media (max-width: 768px) {
+            .industries-section {
+                padding: 5rem 1rem;
+            }
+            
+            .industries-title {
+                font-size: 2.2rem;
+            }
+            
+            .industries-subtitle {
+                font-size: 1rem;
+            }
+            
+            .industries-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            .industry-item {
+                padding: 1.5rem 1rem;
+            }
+        }
+        
+        /* Trust and Integrity Section */
+        .trust-section {
+            background: var(--primary-black);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* .trust-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        } */
+        
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .trust-header {
+            margin-bottom: 5rem;
+        }
+        
+        .trust-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--secondary-white);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            line-height: 1.2;
+        }
+        
+        .trust-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .trust-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .trust-feature {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .trust-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .trust-feature.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .trust-feature:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .trust-feature-content {
+            text-align: center;
+        }
+        
+        .trust-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .trust-description strong {
+            color: var(--secondary-white);
+            font-weight: 500;
+        }
+        
+        /* Mobile Responsive for Trust Section */
+        @media (max-width: 768px) {
+            .trust-section {
+                padding: 5rem 1rem;
+            }
+            
+            .trust-title {
+                font-size: 2.2rem;
+            }
+            
+            .trust-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+            
+            .trust-feature {
+                padding: 2rem 1.5rem;
+            }
+            
+            .trust-description {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Voices of the Circle Section */
+        .voices-section {
+            background: var(--secondary-white);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+        
+        .voices-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .voices-header {
+            margin-bottom: 5rem;
+        }
+        
+        .voices-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--primary-black);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            line-height: 1.2;
+        }
+        
+        .voices-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .voices-content {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .voices-content.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .voices-content::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--primary-blue);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-quote {
+            margin-bottom: 3rem;
+        }
+        
+        .quote-text {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--primary-black);
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+            text-align: left;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            border-top: 2px solid var(--primary-blue);
+            padding-top: 2rem;
+        }
+        
+        .author-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-black);
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .author-title {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            margin: 0;
+        }
+        
+        /* Mobile Responsive for Voices Section */
+        @media (max-width: 768px) {
+            .voices-section {
+                padding: 5rem 1rem;
+            }
+            
+            .voices-title {
+                font-size: 2.2rem;
+            }
+            
+            .voices-content {
+                padding: 2.5rem 2rem;
+                border-radius: 16px;
+            }
+            
+            .voices-content::before {
+                font-size: 4rem;
+                top: -15px;
+                left: 20px;
+            }
+            
+            .quote-text {
+                font-size: 1.1rem;
+            }
+            
+            .author-name {
+                font-size: 1.1rem;
+            }
+            
+            .author-title {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Membership Invitation Section */
+        .membership-section {
+            background: var(--primary-black);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+
+        
+        .membership-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .membership-header {
+            margin-bottom: 4rem;
+        }
+        
+        .membership-title {
+            font-size: 38px;
+            font-weight: 300;
+            color: var(--secondary-white);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            line-height: 1.2;
+        }
+        
+        .membership-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .membership-content {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .membership-description {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .membership-description::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            width: 4px;
+            height: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 2px;
+        }
+        
+        .membership-description.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .membership-description:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Mobile Responsive for Membership Section */
+        @media (max-width: 768px) {
+            .membership-section {
+                padding: 5rem 1rem;
+            }
+            
+            .membership-title {
+                font-size: 2.2rem;
+            }
+            
+            .membership-content {
+                text-align: left;
+            }
+            
+            .membership-description {
+                font-size: 1.1rem;
+                padding-left: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .membership-description::before {
+                top: 0.7rem;
+                height: 1.2rem;
+            }
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--secondary-white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px !important;
+            background-color: transparent;
+            color: var(--primary-black);
+            text-decoration: none;
+            border: 2px solid var(--primary-black);
+            border-radius: 2em;
+            font-weight: 600 !important;
+            font-size: 13px;
+            transition: var(--transition);
+            min-width: 200px;
+            position: relative;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .cta-button.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .cta-button.primary {
+            background-color: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+        
+        .cta-button.primary:hover {
+            background-color: var(--primary-black);
+            color: var(--secondary-white);
+            border-color: var(--primary-black);
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+        
+        .cta-button.secondary:hover {
+            background-color: var(--primary-black);
+            color: var(--secondary-white);
+            border-color: var(--primary-black);
+        }
+        
+        .cta-disclaimer {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.6;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.4s;
+        }
+        
+        .disclaimer-text.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive for CTA Section */
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 4rem 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .cta-button {
+                min-width: 250px;
+                padding: 1.2rem 2rem;
+            }
+            
+            .disclaimer-text {
+                font-size: 0.85rem;
+            }
         }
         
         /* Who Can Join Section */
@@ -903,6 +1903,18 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 400px;
+            }
+            
+            .features-grid .feature-card:nth-child(4),
+            .features-grid .feature-card:nth-child(5) {
+                grid-column: 1;
+                grid-row: auto;
+            }
+            
             .nav-container {
                 padding: 1rem;
             }
@@ -1065,13 +2077,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">The Inner Circle for Enterprise Leaders</h1>
-            <p class="hero-subtitle">Private membership for enterprise decision-makers ready to exchange insight and shape outcomes.</p>
+            <h1 class="hero-title">A Private Circle for C-Suite Leaders Driving Enterprise Change</h1>
+            <p class="hero-subtitle">An invitation-only peer network for APAC’s top executives where trusted relationships and bold ideas turn strategy into transformation.</p>
             <div class="hero-buttons">
                 <a href="contact.html" class="hero-button">Join The Circle</a>
             </div>
-            <p class="hero-membership" style="margin-top: 2rem; font-size: 0.9rem; opacity: 0;">Membership is by invitation or peer referral only.</p>
-                <p class="hero-details" style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0; cursor: pointer;"><u>View Membership Details</u></p>
+            <!-- <p class="hero-membership" style="margin-top: 2rem; font-size: 0.9rem; opacity: 0;">Membership is by invitation or peer referral only.</p>
+            <p class="hero-details" style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0; cursor: pointer;"><u>View Membership Details</u></p> -->
         </div>
     </section>
 
@@ -1082,11 +2094,16 @@
                  <img src="Executives.jpg" alt="Executive Meeting">
              </div>
              <div class="about-content">
-                 <h2 class="about-title">Our Promise</h2>
+                 <h2 class="about-title">Why the Circle Exists</h2>
                  <p class="about-text">
-                     We bring together verified C-suite leaders from your domain (CIO, CCO, CDO, CTO, CISO, CFO, and beyond) in a curated, confidential network that operates under Chatham House Rules.
+                     Enterprise leaders today face complex challenges from accelerating digital transformation and evolving customer expectations to managing risk, regulation, and global market uncertainty.
                  </p>
-                 
+                 <p class="about-text">
+                     Solving these challenges requires more than data and strategy. It demands trusted conversations with peers who understand the weight of your decisions and share your ambition for progress.
+                 </p>
+                 <p class="about-text">
+                     Blackbook Circle provides that space: a private, vendor-free network where senior executives engage in meaningful dialogue, gain clarity, and turn insight into measurable outcomes.
+                 </p>
 
              </div>
          </div>
@@ -1095,33 +2112,225 @@
       <!-- Features Section -->
       <section class="features-section">
           <div class="features-container">
-              <h2 class="features-title">Here, you will find</h2>
-              <p class="features-subtitle">You don't just join a network, you join a circle of leaders committed to solving real business challenges together, without vendor noise.</p>
+              <h2 class="features-title">What You Gain as a Member</h2>
+              <p class="features-subtitle">Membership is designed to deliver value where it matters most in your leadership, your organisation, and the future you're shaping.</p>
               <div class="features-grid">
+                  <div class="feature-card">
+                      <div class="feature-icon">
+                          <i class="fas fa-lock"></i>
+                      </div>
+                      <h3 class="feature-heading">Confidential Peer Exchange</h3>
+                      <p class="feature-description">Engage in candid discussions with other C-suite executives under Chatham House Rules, ensuring absolute privacy and trust.</p>
+                  </div>
+                  <div class="feature-card">
+                      <div class="feature-icon">
+                          <i class="fas fa-globe"></i>
+                      </div>
+                      <h3 class="feature-heading">Diverse Perspectives</h3>
+                      <p class="feature-description">Gain insights from leaders across industries and markets, broadening your thinking with regional and cross-sector perspectives.</p>
+                  </div>
                   <div class="feature-card">
                       <div class="feature-icon">
                           <i class="fas fa-lightbulb"></i>
                       </div>
-                      <h3 class="feature-heading">Strategic clarity through exclusive peer insights and shared experience.</h3>
+                      <h3 class="feature-heading">Strategic Clarity</h3>
+                      <p class="feature-description">Validate ideas and refine strategies through curated, peer-led forums focused on real business outcomes.</p>
                   </div>
                   <div class="feature-card">
                       <div class="feature-icon">
-                          <i class="fas fa-bullhorn"></i>
+                          <i class="fas fa-cogs"></i>
                       </div>
-                      <h3 class="feature-heading">Vendor-agnostic discussions free from commercial bias or hidden agendas.</h3>
+                      <h3 class="feature-heading">Influence Future Topics</h3>
+                      <p class="feature-description">Help guide the themes and priorities of discussions, ensuring relevance to your most pressing challenges.</p>
                   </div>
                   <div class="feature-card">
                       <div class="feature-icon">
-                          <i class="fas fa-users"></i>
+                          <i class="fas fa-handshake"></i>
                       </div>
-                      <h3 class="feature-heading">Direct access to trusted peers and solution providers only when relevant to your priorities.</h3>
+                      <h3 class="feature-heading">Lasting Relationships</h3>
+                      <p class="feature-description">Build meaningful connections that go beyond networking relationships grounded in trust, shared experience, and impact.</p>
                   </div>
               </div>
           </div>
        </section>
        
+       <!-- How It Works Section -->
+       <section class="how-it-works-section">
+           <div class="how-it-works-container">
+               <div class="how-it-works-header">
+                   <h2 class="how-it-works-title">How It Works</h2>
+                   <p class="how-it-works-subtitle">Every interaction is purposeful and curated, designed to respect your time and deliver lasting value.</p>
+               </div>
+               
+               <div class="how-it-works-flow">
+                   <div class="flow-step">
+                       <div class="step-number">01</div>
+                       <div class="step-icon">
+                           <i class="fas fa-user-check"></i>
+                       </div>
+                       <h3 class="step-title">Invitation & Onboarding</h3>
+                       <p class="step-description">Membership is by application or invitation only, ensuring a carefully curated peer group of senior leaders across APAC.</p>
+                   </div>
+                   
+                   <div class="flow-connector">
+                       <div class="connector-line"></div>
+                       <div class="connector-arrow">
+                           <i class="fas fa-arrow-right"></i>
+                       </div>
+                   </div>
+                   
+                   <div class="flow-step">
+                       <div class="step-number">02</div>
+                       <div class="step-icon">
+                           <i class="fas fa-users"></i>
+                       </div>
+                       <h3 class="step-title">Curated Peer Engagements</h3>
+                       <p class="step-description">Participate in private forums, leadership circles, and research initiatives that address the challenges you and your peers face today.</p>
+                   </div>
+                   
+                   <div class="flow-connector">
+                       <div class="connector-line"></div>
+                       <div class="connector-arrow">
+                           <i class="fas fa-arrow-right"></i>
+                       </div>
+                   </div>
+                   
+                   <div class="flow-step">
+                       <div class="step-number">03</div>
+                       <div class="step-icon">
+                           <i class="fas fa-chart-line"></i>
+                       </div>
+                       <h3 class="step-title">Actionable Insights & Ongoing Value</h3>
+                       <p class="step-description">Access post-session insights, benchmarking data, and follow-up opportunities that transform conversation into measurable impact.</p>
+                   </div>
+               </div>
+           </div>
+       </section>
+       
+       <!-- Who Is Part of the Circle Section -->
+       <section class="circle-members-section">
+           <div class="circle-members-container">
+               <div class="circle-members-header">
+                   <h2 class="circle-members-title">Who Is Part of the Circle</h2>
+                   <p class="circle-members-subtitle">
+                       The Blackbook Circle brings together senior executives from across APAC, creating a diverse and powerful network of leaders who are driving transformation in their organisations and industries.
+                   </p>
+               </div>
+               
+               <div class="roles-grid">
+                   <div class="role-category">
+                       <div class="category-header">
+                           <h3 class="category-title">Primary C-Suite Roles</h3>
+                       </div>
+                       <div class="roles-list">
+                           <div class="role-item">
+                               <span class="role-title">Chief Executive Officer</span>
+                               <span class="role-abbr">(CEO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Operating Officer</span>
+                               <span class="role-abbr">(COO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Financial Officer</span>
+                               <span class="role-abbr">(CFO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Risk Officer</span>
+                               <span class="role-abbr">(CRO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Strategy Officer</span>
+                               <span class="role-abbr">(CSO)</span>
+                           </div>
+                       </div>
+                   </div>
+                   
+                   <div class="role-category">
+                       <div class="category-header">
+                           <h3 class="category-title">Customer, Growth & Experience Leaders</h3>
+                       </div>
+                       <div class="roles-list">
+                           <div class="role-item">
+                               <span class="role-title">Chief Customer Officer</span>
+                               <span class="role-abbr">(CCO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Marketing Officer</span>
+                               <span class="role-abbr">(CMO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Commercial Officer</span>
+                               <span class="role-abbr">(CCO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Sales Officer</span>
+                               <span class="role-abbr">(CSO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Revenue Officer</span>
+                               <span class="role-abbr">(CRO)</span>
+                           </div>
+                       </div>
+                   </div>
+                   
+                   <div class="role-category">
+                       <div class="category-header">
+                           <h3 class="category-title">Digital, Data & Technology Leaders</h3>
+                       </div>
+                       <div class="roles-list">
+                           <div class="role-item">
+                               <span class="role-title">Chief Information Officer</span>
+                               <span class="role-abbr">(CIO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Digital Officer</span>
+                               <span class="role-abbr">(CDO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Technology Officer</span>
+                               <span class="role-abbr">(CTO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Data Officer</span>
+                               <span class="role-abbr">(CDO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Analytics Officer</span>
+                               <span class="role-abbr">(CAO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Product Officer</span>
+                               <span class="role-abbr">(CPO)</span>
+                           </div>
+                       </div>
+                   </div>
+                   
+                   <div class="role-category">
+                       <div class="category-header">
+                           <h3 class="category-title">Trust, Security & Compliance Leaders</h3>
+                       </div>
+                       <div class="roles-list">
+                           <div class="role-item">
+                               <span class="role-title">Chief Information Security Officer</span>
+                               <span class="role-abbr">(CISO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Privacy Officer</span>
+                               <span class="role-abbr">(CPO)</span>
+                           </div>
+                           <div class="role-item">
+                               <span class="role-title">Chief Compliance Officer</span>
+                               <span class="role-abbr">(CCO)</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       
        <!-- Who Can Join Section -->
-       <section class="join-section">
+       <section class="join-section" style="display: none;">
            <div class="join-container">
                <div class="join-header">
                    <h2 class="join-title">Who Can Join</h2>
@@ -1170,8 +2379,149 @@
            </div>
        </section>
         
+        <!-- Industries Represented Section -->
+        <section class="industries-section">
+            <div class="industries-container">
+                <div class="industries-header">
+                    <h2 class="industries-title">Industries Represented</h2>
+                    <p class="industries-subtitle">Blackbook Circle operates across APAC, uniting leaders from sectors where innovation, resilience, and transformation are critical to future success.</p>
+                </div>
+                
+                <div class="industries-grid">
+                    <div class="industry-item">
+                        <h3 class="industry-name">Banking & Financial Services</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Insurance</h3>
+                        <p class="industry-detail">(Life, Health, General, and Reinsurance)</p>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Telecommunications</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Energy & Utilities</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Government</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Retail & eCommerce</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Healthcare & Life Sciences</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Manufacturing & Supply Chain</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Transport & Logistics</h3>
+                    </div>
+                    
+                    <div class="industry-item">
+                        <h3 class="industry-name">Critical Infrastructure</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trust and Integrity Section -->
+        <section class="trust-section">
+            <div class="trust-container">
+                <div class="trust-header">
+                    <h2 class="trust-title">A Circle Built on Trust and Integrity</h2>
+                </div>
+                
+                <div class="trust-content">
+                    <div class="trust-feature">
+                        <div class="trust-feature-content">
+                            <p class="trust-description">Every engagement within the Circle is governed by <strong>Chatham House Rules</strong>, ensuring a safe space for candid, unfiltered conversations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-feature">
+                        <div class="trust-feature-content">
+                            <p class="trust-description">Our interactions are intentionally curated to prioritize <strong>quality over quantity</strong>, bringing together the right peers, not the most.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-feature">
+                        <div class="trust-feature-content">
+                            <p class="trust-description">This <strong>vendor-free environment</strong> allows leaders to connect without commercial agendas, fostering authentic collaboration and measurable outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Voices of the Circle Section -->
+        <section class="voices-section">
+            <div class="voices-container">
+                <div class="voices-header">
+                    <h2 class="voices-title">Voices of the Circle</h2>
+                </div>
+                
+                <div class="voices-content">
+                    <div class="testimonial-quote">
+                        <p class="quote-text">Working with Collin over the past few years has been crucial for building my professional network. His exceptional ability to connect people with the right opportunities is unmatched. Collin's genuine connections lead to real growth and collaboration. His expertise and approach to the industry make him an invaluable asset for anyone seeking to expand their network with the best people.</p>
+                    </div>
+                    
+                    <div class="testimonial-author">
+                        <p class="author-name">Claire Cunningham</p>
+                        <p class="author-title">National CX Manager at Coles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Membership Invitation Section -->
+        <section class="membership-section">
+            <div class="membership-container">
+                <div class="membership-header">
+                    <h2 class="membership-title">Membership Invitation</h2>
+                </div>
+                
+                <div class="membership-content">
+                    <p class="membership-description">
+                        Membership in the Circle is highly selective, with most senior executives joining through personal invitation or peer referral.
+                    </p>
+                    
+                    <p class="membership-description">
+                        For exceptional leaders who align with our values and vision, we also offer a limited application pathway.
+                    </p>
+                    
+                    <p class="membership-description">
+                        Every application is carefully reviewed to maintain the integrity, trust, and exclusivity that define the Circle.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary">View Membership Details</a>
+                    <a href="contact.html" class="cta-button secondary">Request to Join</a>
+                </div>
+                
+                <div class="cta-disclaimer">
+                    <p class="disclaimer-text">
+                        Submitting a request does not guarantee membership. All applications are carefully reviewed by the Blackbook Circle team to ensure alignment with our community values.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
         <!-- Asia Pacific Section -->
-        <section class="apac-section">
+        <section class="apac-section" style="display: none;">
             <div class="apac-container">
                 <h2 class="apac-title">We Operate Across Asia Pacific</h2>
                 <div class="apac-map">
@@ -1181,7 +2531,7 @@
         </section>
          
          <!-- Testimonials Section -->
-         <section class="testimonials-section">
+         <section class="testimonials-section" style="display: none;">
              <div class="testimonials-container">
                  <h2 class="testimonials-title">What Our Partners Say</h2>
                  <div class="testimonials-grid">
@@ -1373,6 +2723,98 @@
                 if (card) observer.observe(card);
             });
             if (joinCta) observer.observe(joinCta);
+            
+            // How It Works section elements
+            const howItWorksTitle = document.querySelector('.how-it-works-title');
+            const howItWorksSubtitle = document.querySelector('.how-it-works-subtitle');
+            const flowSteps = document.querySelectorAll('.flow-step');
+            const flowConnectors = document.querySelectorAll('.flow-connector');
+            
+            if (howItWorksTitle) observer.observe(howItWorksTitle);
+            if (howItWorksSubtitle) observer.observe(howItWorksSubtitle);
+            flowSteps.forEach((step, index) => {
+                if (step) {
+                    step.style.transitionDelay = `${0.2 + (index * 0.2)}s`;
+                    observer.observe(step);
+                }
+            });
+            flowConnectors.forEach((connector, index) => {
+                if (connector) {
+                    connector.style.transitionDelay = `${0.6 + (index * 0.2)}s`;
+                    observer.observe(connector);
+                }
+            });
+            
+            // Who Is Part of the Circle section elements
+            const circleMembersTitle = document.querySelector('.circle-members-title');
+            const circleMembersSubtitle = document.querySelector('.circle-members-subtitle');
+            const roleCategories = document.querySelectorAll('.role-category');
+            
+            if (circleMembersTitle) observer.observe(circleMembersTitle);
+            if (circleMembersSubtitle) observer.observe(circleMembersSubtitle);
+            roleCategories.forEach((category, index) => {
+                if (category) {
+                    category.style.transitionDelay = `${0.2 + (index * 0.15)}s`;
+                    observer.observe(category);
+                }
+            });
+            
+            // Industries Represented section elements
+            const industriesTitle = document.querySelector('.industries-title');
+            const industriesSubtitle = document.querySelector('.industries-subtitle');
+            const industryItems = document.querySelectorAll('.industry-item');
+            
+            if (industriesTitle) observer.observe(industriesTitle);
+            if (industriesSubtitle) observer.observe(industriesSubtitle);
+            industryItems.forEach((item, index) => {
+                if (item) {
+                    item.style.transitionDelay = `${0.4 + (index * 0.1)}s`;
+                    observer.observe(item);
+                }
+            });
+            
+            // Trust and Integrity section elements
+            const trustTitle = document.querySelector('.trust-title');
+            const trustFeatures = document.querySelectorAll('.trust-feature');
+            
+            if (trustTitle) observer.observe(trustTitle);
+            trustFeatures.forEach((feature, index) => {
+                if (feature) {
+                    feature.style.transitionDelay = `${0.2 + (index * 0.15)}s`;
+                    observer.observe(feature);
+                }
+            });
+            
+            // Voices of the Circle section elements
+            const voicesTitle = document.querySelector('.voices-title');
+            const voicesContent = document.querySelector('.voices-content');
+            
+            if (voicesTitle) observer.observe(voicesTitle);
+            if (voicesContent) observer.observe(voicesContent);
+            
+            // Membership Invitation section elements
+            const membershipTitle = document.querySelector('.membership-title');
+            const membershipDescriptions = document.querySelectorAll('.membership-description');
+            
+            if (membershipTitle) observer.observe(membershipTitle);
+            membershipDescriptions.forEach((description, index) => {
+                if (description) {
+                    description.style.transitionDelay = `${0.2 + (index * 0.2)}s`;
+                    observer.observe(description);
+                }
+            });
+            
+            // CTA section elements
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            const disclaimerText = document.querySelector('.disclaimer-text');
+            
+            ctaButtons.forEach((button, index) => {
+                if (button) {
+                    button.style.transitionDelay = `${0.2 + (index * 0.2)}s`;
+                    observer.observe(button);
+                }
+            });
+            if (disclaimerText) observer.observe(disclaimerText);
             
             // Asia Pacific section elements
             const apacTitle = document.querySelector('.apac-title');
