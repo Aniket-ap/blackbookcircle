@@ -259,6 +259,39 @@
             margin-bottom: 3rem;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.8s;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px !important;
+            background-color: transparent;
+            color: rgb(232, 232, 232);
+            text-decoration: none;
+            border: 2px solid rgb(232, 232, 232);
+            border-radius: 2em;
+            font-weight: 600 !important;
+            font-size: 13px;
+            transition: var(--transition);
+            min-width: 200px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .hero-button:hover {
+            background-color: var(--secondary-white);
+            color: var(--primary-black);
+            border-color: var(--secondary-white);
+        }
         
         /* What We Do Section */
         .what-we-do {
@@ -288,6 +321,22 @@
             text-align: center;
             margin-bottom: 4rem;
             color: var(--primary-black);
+        }
+        .features-subtitle {
+            font-size: 1.125rem;
+            font-weight: 200;
+            line-height: 1.6;
+            color: var(--secondary-white);
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.8s;
+        }
+        
+        .features-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .content-grid {
@@ -629,31 +678,35 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title" id="heroTitle">Advisory & Consulting</h1>
+                <h1 class="hero-title" id="heroTitle">Independent Consulting for Enterprise Transformation</h1>
+                <p class="hero-subtitle">
+                    Real-world expertise to help leaders navigate complexity, accelerate growth, and deliver measurable outcomes.
+                </p>
+                <div class="hero-buttons">
+                <a href="contact.html" class="hero-button">Book a Strategy Call</a>
+            </div>
             </div>
         </section>
 
         <!-- What We Do Section -->
         <section class="what-we-do">
             <div class="section-content">
-                <h2 class="section-title">What We Do</h2>
+                <h2 class="section-title">Why Work With Us</h2>
                 <div class="content-grid">
                     <p class="content-text">
-                        <span class="highlight-text">We're not here to drown you in theory or deliver cookie-cutter playbooks.</span>
-                        Our consulting is led by former C-suite practitioners who've actually been in the trenches implementing, scaling, and delivering transformation at some of the most recognised brands across APAC.
+                        <!-- <span class="highlight-text">Most consulting firms start with theory. We start with experience.</span> -->
+                         Most consulting firms start with theory. We start with experience.
                     </p>
                     <p class="content-text">
-                        You don't have to pay a fortune for the privilege. You don't have to go with the household names. <span class="highlight-text">What you do get is no flu - just practical, measurable outcomes, delivered one step at a time.</span>
+                        Our consulting is led by former C-suite practitioners who have implemented, scaled, and delivered transformation at some of APAC’s most recognised brands.
                     </p>
                     <p class="content-text">
-                        Our approach is phased, intentional, and built for sustainable growth so you can move fast without losing focus.
+                        You don’t need a big-name firm or a massive budget, what you get is no fluff, just practical strategies that create measurable outcomes, delivered one step at a time.
                     </p>
                     <p class="content-text">
-                        <span class="highlight-text">This isn't advisory from the sidelines.</span> This is perspective, strategy, and execution from people who've been exactly where you are now and know how to take you further.
+                        Our approach is phased, intentional, and built for sustainable growth, so you can move fast without losing focus.
                     </p>
-                    <p class="content-text">
-                        Want to see if our approach works for you? Reach out for a relaxed, no-obligation chat.
-                    </p>
+                   
                 </div>
             </div>
         </section>
@@ -662,6 +715,7 @@
         <section class="expertise">
             <div class="section-content">
                 <h2 class="section-title">Our Expertise</h2>
+                <p class="features-subtitle">We focus on the areas that matter most to enterprise and government leaders navigating transformation.</p>
                 <div class="expertise-grid">
                     <div class="expertise-card">
                         <h3 class="card-title">Customer Experience Transformation</h3>
