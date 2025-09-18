@@ -317,6 +317,7 @@
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             word-wrap: break-word;
             hyphens: none;
+            white-space: nowrap;
         }
 
         .hero-title .letter {
@@ -379,9 +380,13 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 2fr;
             gap: 4rem;
             margin-bottom: 3rem;
+        }
+
+        .footer-section:first-child {
+            text-align: center;
         }
 
         .footer-section h3 {
@@ -875,6 +880,7 @@
             .hero-title {
                 font-size: 24px;
                 line-height: 1.2;
+                white-space: normal;
             }
         }
 
@@ -901,6 +907,7 @@
 
             .hero-title {
                 font-size: 22px;
+                white-space: normal;
             }
 
             .hero-subtitle {
@@ -1024,14 +1031,14 @@
 }
 
 .vendor-btn {
-    background-color: transparent;
-    color: var(--primary-black);
+    background-color: var(--primary-black);
+    color: var(--secondary-white);
     border: 2px solid var(--primary-black);
 }
 
 .vendor-btn:hover {
-    background-color: var(--primary-black);
-    color: var(--secondary-white);
+    background-color: transparent;
+    color: var(--primary-black);
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
@@ -1561,7 +1568,7 @@
     <section class="what-we-do">
         <div class="what-we-do-grid">
             <div class="what-we-do-image">
-                <img src="Executives.jpg" alt="BlackBook Circle Executive" loading="lazy">
+                <img src="./img/About.jpg" alt="BlackBook Circle Executive" loading="lazy">
             </div>
             <div class="what-we-do-text">
                 <h2>Our Story</h2>
@@ -1698,7 +1705,7 @@
                     <div class="founder-attribution">
                         <div class="founder-info">
                             <div class="founder-details">
-                                <span class="founder-name">– Collin Lawrence</span>
+                                <span class="founder-name">Collin Lawrence</span>
                                 <span class="founder-title">Founder & CEO</span>
                             </div>
                         </div>
@@ -1745,33 +1752,6 @@
         </div>
     </section>
 
-    <!-- What We Stand For Section -->
-    <section class="stand-for-section" style="display: none;">
-        <div class="stand-for-container">
-            <div class="stand-for-content">
-                <div class="stand-for-text">
-                    <h2 class="stand-for-title">What We Stand For</h2>
-                    <div class="stand-for-points">
-                        <div class="stand-point" data-image="trust">
-                            <h3 class="point-title">Trust First</h3>
-                            <p class="point-description">Authenticity drives everything we do - leaders trust peers, not pitches.</p>
-                        </div>
-                        <div class="stand-point" data-image="clarity">
-                            <h3 class="point-title">Clarity Over Noise</h3>
-                            <p class="point-description">We strip away distractions to focus on the insights and priorities that matter most.</p>
-                        </div>
-                        <div class="stand-point" data-image="momentum">
-                            <h3 class="point-title">Momentum That Lasts</h3>
-                            <p class="point-description">Every conversation is designed to create outcomes that drive longterm impact, not just another meeting.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="stand-for-image">
-                    <img id="standForImg" src="About-Trust.jpg" alt="What We Stand For" class="stand-image">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1780,8 +1760,7 @@
                 <div class="footer-logo">
                     <img src="Blackbook-white-image.png" alt="BlackBook Circle">
                 </div>
-                <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with
-                    exceptional opportunities across the APAC region.</p>
+                <p class="font-light">The Trusted Network for C-Suite Excellence</p>
             </div>
             <div class="footer-section">
                 <h3 class="font-bold">Quick Links</h3>
@@ -1797,7 +1776,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>Level 17, 1 Denison Street North Sydney, NSW 2060</span>
+                    <span>Level 17, 1 Denison Street, North Sydney, NSW 2026</span>
                 </p>
                 <p class="font-light" style="display: flex; align-items: flex-start; gap: 8px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
@@ -1809,7 +1788,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
+            <p class="text-xs font-light">&copy; 2025 Blackbook Circle. All rights reserved.</p>
         </div>
     </footer>
 

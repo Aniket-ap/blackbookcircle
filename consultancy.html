@@ -329,7 +329,7 @@
             line-height: 1.6;
             color: var(--secondary-white);
             max-width: 900px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 1rem auto;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.8s;
@@ -346,21 +346,80 @@
             grid-template-columns: 1fr;
             gap: 2rem;
         }
+
+        .what-we-do-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .what-we-do-container.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .what-we-do-image {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .what-we-do-image.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .what-we-do-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .what-we-do-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .what-we-do-content {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease 0.4s;
+        }
+
+        .what-we-do-content.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .what-we-do-content .section-title {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
         
         .content-text {
             font-size: 1.125rem;
             line-height: 1.8;
             color: #444;
             font-weight: 300;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .what-we-do-content .content-text {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards;
         }
-        
-        .content-text:nth-child(2) { animation-delay: 0.2s; }
-        .content-text:nth-child(3) { animation-delay: 0.4s; }
-        .content-text:nth-child(4) { animation-delay: 0.6s; }
-        .content-text:nth-child(5) { animation-delay: 0.8s; }
+
+        .what-we-do-content .content-text:nth-child(1) { animation-delay: 0.6s; }
+        .what-we-do-content .content-text:nth-child(2) { animation-delay: 0.8s; }
+        .what-we-do-content .content-text:nth-child(3) { animation-delay: 1.0s; }
+        .what-we-do-content .content-text:nth-child(4) { animation-delay: 1.2s; }
         
         .highlight-text {
             font-weight: 600;
@@ -692,7 +751,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 2fr;
             gap: 4rem;
             margin-bottom: 3rem;
         }
@@ -701,6 +760,10 @@
             height: 100px;
             width: auto;
             filter: brightness(0) invert(1);
+        }
+        
+        .footer-section:first-child {
+            text-align: center;
         }
         
         .footer-section h3 {
@@ -880,21 +943,24 @@
         <section class="what-we-do">
             <div class="section-content">
                 <h2 class="section-title">Why Work With Us</h2>
-                <div class="content-grid">
-                    <p class="content-text">
-                        <!-- <span class="highlight-text">Most consulting firms start with theory. We start with experience.</span> -->
-                         Most consulting firms start with theory. We start with experience.
-                    </p>
-                    <p class="content-text">
-                        Our consulting is led by former C-suite practitioners who have implemented, scaled, and delivered transformation at some of APAC’s most recognised brands.
-                    </p>
-                    <p class="content-text">
-                        You don’t need a big-name firm or a massive budget, what you get is no fluff, just practical strategies that create measurable outcomes, delivered one step at a time.
-                    </p>
-                    <p class="content-text">
-                        Our approach is phased, intentional, and built for sustainable growth, so you can move fast without losing focus.
-                    </p>
-                   
+                <div class="what-we-do-container">
+                    <div class="what-we-do-image">
+                        <img src="./img/Consultancy.jpg" alt="Why Work With Us" />
+                    </div>
+                    <div class="what-we-do-content">
+                        <p class="content-text">
+                            Most consulting firms start with theory. We start with experience.
+                        </p>
+                        <p class="content-text">
+                            Our consulting is led by former C-suite practitioners who have implemented, scaled, and delivered transformation at some of APAC's most recognised brands.
+                        </p>
+                        <p class="content-text">
+                            You don't need a big-name firm or a massive budget, what you get is no fluff, just practical strategies that create measurable outcomes, delivered one step at a time.
+                        </p>
+                        <p class="content-text">
+                            Our approach is phased, intentional, and built for sustainable growth, so you can move fast without losing focus.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1005,7 +1071,7 @@
                 <div class="footer-logo">
                     <img src="Blackbook-white-image.png" alt="BlackBook Circle">
                 </div>
-                <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with exceptional opportunities across the APAC region.</p>
+                <p class="font-light">The Trusted Network for C-Suite Excellence</p>
             </div>
             <div class="footer-section">
                 <h3 class="font-bold">Quick Links</h3>
@@ -1021,7 +1087,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>Level 17, 1 Denison Street North Sydney, NSW 2060</span>
+                    <span>Level 17, 1 Denison Street, North Sydney, NSW 2026</span>
                 </p>
                 <p class="font-light" style="display: flex; align-items: flex-start; gap: 8px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
@@ -1033,7 +1099,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
+            <p class="text-xs font-light">&copy; 2025 Blackbook Circle. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1108,7 +1174,7 @@
             });
             
             // Observe elements for animation
-            document.querySelectorAll('.section-title, .features-subtitle, .content-text, .expertise-card, .approach-step').forEach(el => {
+            document.querySelectorAll('.section-title, .features-subtitle, .content-text, .expertise-card, .approach-step, .what-we-do-container, .what-we-do-image, .what-we-do-content').forEach(el => {
                 observer.observe(el);
             });
         }

@@ -449,24 +449,24 @@
         }
         
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             gap: 3rem 2rem;
             margin: 3rem auto;
             max-width: 1000px;
-            justify-items: center;
         }
         
-        .features-grid .feature-card:nth-child(4) {
-            grid-column: 1 / 2;
-            grid-row: 2;
-            margin-left: 25%;
+        .features-grid .feature-card:nth-child(1),
+        .features-grid .feature-card:nth-child(2),
+        .features-grid .feature-card:nth-child(3) {
+            flex: 0 1 calc(33.333% - 1.5rem);
         }
         
+        .features-grid .feature-card:nth-child(4),
         .features-grid .feature-card:nth-child(5) {
-            grid-column: 3 / 4;
-            grid-row: 2;
-            margin-right: 25%;
+            flex: 0 1 calc(33.333% - 1.5rem);
         }
         
         .feature-card {
@@ -660,13 +660,7 @@
         }
         
         .flow-connector {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.8s ease 0.4s;
+            display: none;
         }
         
         .flow-connector.animate {
@@ -1338,6 +1332,54 @@
             margin: 0 auto;
         }
         
+        .membership-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 3rem 0 2rem 0;
+        }
+        
+        .membership-buttons .cta-button {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 12px 25px !important;
+            background-color: transparent !important;
+            color: rgb(232, 232, 232) !important;
+            text-decoration: none !important;
+            border: 2px solid rgb(232, 232, 232) !important;
+            border-radius: 2em !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            transition: all 0.3s ease !important;
+            min-width: 200px !important;
+            position: relative !important;
+            text-transform: uppercase !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .membership-buttons .cta-button:hover {
+            background-color: var(--secondary-white) !important;
+            color: var(--primary-black) !important;
+            border-color: var(--secondary-white) !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .membership-disclaimer {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .membership-disclaimer .disclaimer-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         .membership-description {
             font-size: 1.25rem;
             font-weight: 300;
@@ -1815,7 +1857,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 2fr;
             gap: 4rem;
             margin-bottom: 3rem;
         }
@@ -1828,6 +1870,10 @@
             height: 100px;
             width: auto;
             filter: brightness(0) invert(1);
+        }
+        
+        .footer-section:first-child {
+            text-align: center;
         }
         
         .footer-section h3 {
@@ -1904,15 +1950,17 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .features-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 2rem;
                 max-width: 400px;
             }
             
+            .features-grid .feature-card:nth-child(1),
+            .features-grid .feature-card:nth-child(2),
+            .features-grid .feature-card:nth-child(3),
             .features-grid .feature-card:nth-child(4),
             .features-grid .feature-card:nth-child(5) {
-                grid-column: 1;
-                grid-row: auto;
+                flex: 1 1 100%;
             }
             
             .nav-container {
@@ -2091,7 +2139,7 @@
      <section class="about-section">
          <div class="about-container">
              <div class="about-image">
-                 <img src="Executives.jpg" alt="Executive Meeting">
+                 <img src="./img/Executive.jpg" alt="Executive Meeting">
              </div>
              <div class="about-content">
                  <h2 class="about-title">Why the Circle Exists</h2>
@@ -2393,8 +2441,8 @@
                     </div>
                     
                     <div class="industry-item">
-                        <h3 class="industry-name">Insurance</h3>
-                        <p class="industry-detail">(Life, Health, General, and Reinsurance)</p>
+                        <h3 class="industry-name">Insurance & Superannuation</h3>
+                        <!-- <p class="industry-detail">(Life, Health, General, and Reinsurance)</p> -->
                     </div>
                     
                     <div class="industry-item">
@@ -2500,24 +2548,23 @@
                     <p class="membership-description">
                         Every application is carefully reviewed to maintain the integrity, trust, and exclusivity that define the Circle.
                     </p>
+                    
+                    <div class="membership-buttons">
+                        <a href="#" class="cta-button primary">View Membership Details</a>
+                        <a href="contact.html" class="cta-button secondary">Request to Join</a>
+                    </div>
+                    
+                    <div class="membership-disclaimer">
+                        <p class="disclaimer-text">
+                            Submitting a request does not guarantee membership. All applications are carefully reviewed by the Blackbook Circle team to ensure alignment with our community values.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
         
         <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="cta-container">
-                <div class="cta-buttons">
-                    <a href="#" class="cta-button primary">View Membership Details</a>
-                    <a href="contact.html" class="cta-button secondary">Request to Join</a>
-                </div>
-                
-                <div class="cta-disclaimer">
-                    <p class="disclaimer-text">
-                        Submitting a request does not guarantee membership. All applications are carefully reviewed by the Blackbook Circle team to ensure alignment with our community values.
-                    </p>
-                </div>
-            </div>
+        <section class="cta-section" style="display: none;">
         </section>
         
         <!-- Asia Pacific Section -->
@@ -2573,7 +2620,7 @@
                 <div class="footer-logo">
                     <img src="Blackbook-white-image.png" alt="BlackBook Circle">
                 </div>
-                <p class="font-light">The premier network for C-Suite excellence, connecting visionary leaders with exceptional opportunities across the APAC region.</p>
+                <p class="font-light">The Trusted Network for C-Suite Excellence</p>
             </div>
             <div class="footer-section">
                 <h3 class="font-bold">Quick Links</h3>
@@ -2590,7 +2637,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <span>Level 17, 1 Denison Street North Sydney, NSW 2060</span>
+                    <span>Level 17, 1 Denison Street, North Sydney, NSW 2026</span>
                 </p>
                 <p class="font-light" style="display: flex; align-items: flex-start; gap: 8px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
@@ -2602,7 +2649,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="text-xs font-light">&copy; 2025 BlackBook Circle. All rights reserved.</p>
+            <p class="text-xs font-light">&copy; 2025 Blackbook Circle. All rights reserved.</p>
         </div>
     </footer>
 
