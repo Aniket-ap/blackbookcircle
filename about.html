@@ -1409,9 +1409,10 @@
 
 .founder-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 .founder-image {
@@ -1474,7 +1475,10 @@
 
 .founder-attribution {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .founder-info {
@@ -1512,14 +1516,13 @@
         padding: 0 1.5rem;
     }
     
-    .founder-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
     .founder-photo {
         width: 150px;
         height: 150px;
+    }
+    
+    .founder-attribution {
+        gap: 1rem;
     }
     
     .founder-section h2 {
@@ -1553,14 +1556,13 @@
         padding: 0 1rem;
     }
     
-    .founder-content {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
     .founder-photo {
         width: 120px;
         height: 120px;
+    }
+    
+    .founder-attribution {
+        gap: 0.75rem;
     }
     
     .founder-section h2 {
@@ -1742,9 +1744,6 @@
     <section class="founder-section">
         <div class="founder-container">
             <div class="founder-content">
-                <div class="founder-image">
-                    <img src="./img/img1.jpg" alt="Collin Lawrence - Founder & CEO" class="founder-photo">
-                </div>
                 <div class="founder-text">
                     <h2>Meet the Founder</h2>
                     <h3 class="founder-headline">A Vision for Trusted Collaboration</h3>
@@ -1757,7 +1756,11 @@
                         </blockquote>
                     </div>
                     <div class="founder-attribution">
+                        <div class="founder-image">
+                    <img src="./img/img1.jpg" alt="Collin Lawrence - Founder & CEO" class="founder-photo">
+                </div>
                         <div class="founder-info">
+                            
                             <div class="founder-details">
                                 <span class="founder-name">Collin Lawrence</span>
                                 <span class="founder-title">Founder & CEO</span>
