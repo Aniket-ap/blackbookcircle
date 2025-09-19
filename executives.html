@@ -239,11 +239,12 @@
             white-space: pre-line;
         }
         
-        .hero-title .letter {
+        .hero-title .word {
             display: inline-block;
             opacity: 0;
-            animation: letterDrop 0.15s ease forwards;
+            animation: wordDrop 0.6s ease forwards;
             transform-origin: center bottom;
+            /* margin-right: 0.3em; */
         }
         
         .hero-subtitle {
@@ -1946,6 +1947,17 @@
                 transform: translateY(0) rotateX(0deg) scale(1);
             }
         }
+
+        @keyframes wordDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
         
         /* Desktop and larger screens */
         @media (min-width: 769px) {
@@ -2706,12 +2718,17 @@
                 const text = title.textContent;
                 title.innerHTML = '';
                 
-                text.split('').forEach((char, index) => {
+                text.split(' ').forEach((word, index) => {
                     const span = document.createElement('span');
-                    span.textContent = char === ' ' ? '\u00A0' : char;
-                    span.className = 'letter';
-                    span.style.animationDelay = `${0.5 + (index * 0.05)}s`;
+                    span.textContent = word;
+                    span.className = 'word';
+                    span.style.animationDelay = `${0.5 + (index * 0.2)}s`;
                     title.appendChild(span);
+                    
+                    // Add space after each word except the last one
+                    if (index < text.split(' ').length - 1) {
+                        title.appendChild(document.createTextNode(' '));
+                    }
                 });
             }
         }
